@@ -10,12 +10,6 @@
             "port": 8888
         }
     ],
-    "moduleLinks": [
-        {
-            "url": "module1",
-            "mdlFile": "module1/module1.mdl"
-        }
-    ],
     "proxy": [
         {
             "url":"/mail",

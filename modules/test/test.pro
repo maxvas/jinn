@@ -1,20 +1,19 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2014-08-11T15:59:24
+# Project created by QtCreator 2014-08-11T00:03:41
 #
 #-------------------------------------------------
 
 QT       -= gui
-QT       += network
 
 DESTDIR = ../bin
-TARGET = mod_proxy
+TARGET = test
 TEMPLATE = lib
 
-DEFINES += MOD_PROXY_LIBRARY
+DEFINES += MOD_TEST_LIBRARY
 
-INCLUDEPATH += "../../anuta_api"
-LIBS += -L"../../bin" -lanuta_api
+INCLUDEPATH += "../../jinn_api"
+LIBS += -L"../../bin" -ljinn_api
 
 INCLUDEPATH += "../../../qhttpparser/src"
 LIBS += -L"../../../qhttpparser/bin" -lqhttpparser
@@ -22,14 +21,12 @@ LIBS += -L"../../../qhttpparser/bin" -lqhttpparser
 INCLUDEPATH += "../../../qjs/src"
 LIBS += -L"../../../qjs/bin" -lqjs
 
-SOURCES += \
-    proxymodule.cpp \
-    proxyprocessor.cpp
+SOURCES += testmodule.cpp \
+    testcontentprocessor.cpp
 
-HEADERS +=\
-        mod_proxy_global.h \
-    proxymodule.h \
-    proxyprocessor.h
+HEADERS += testmodule.h\
+        mod_test_global.h \
+    testcontentprocessor.h
 
 unix {
     target.path = /usr/lib
