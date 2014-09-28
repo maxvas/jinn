@@ -2,14 +2,14 @@
 #define PROXYMODULE_H
 
 #include <QObject>
-#include <anutamodule.h>
+#include <jinnmodule.h>
 #include <qhttpresponseparser.h>
 
-class ProxyModule : public AnutaModule
+class ProxyModule : public JinnModule
 {
     Q_OBJECT
-    Q_PLUGIN_METADATA(IID "com.maxvas.anuta_api.AnutaModule")
-    Q_INTERFACES(AnutaModule)
+    Q_PLUGIN_METADATA(IID "pro.jinn.api.JinnModule")
+    Q_INTERFACES(JinnModule)
 public:
     explicit ProxyModule(QObject *parent = 0);
     QString name();

@@ -1,7 +1,7 @@
 #ifndef TESTMODULE_H
 #define TESTMODULE_H
 
-#include "mod_test_global.h"
+#include "test_global.h"
 #include <jinnmodule.h>
 
 class MOD_TESTSHARED_EXPORT TestModule: public JinnModule

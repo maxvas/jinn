@@ -2,7 +2,7 @@
 #include "proxyprocessor.h"
 
 ProxyModule::ProxyModule(QObject *parent) :
-    AnutaModule(parent)
+    JinnModule(parent)
 {
     this->contentProcessors.append(new ProxyProcessor());
 }

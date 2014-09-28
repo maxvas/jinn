@@ -5,7 +5,7 @@
 	"connectionsPerWorker": 1,
 	"workersCount": 1,
 	"modules": [
-		"../../../modules/bin/libmod_test.so.1.0.0",
-		"../../../modules/bin/libmod_proxy.so.1.0.0"
+		"../../../modules/bin/libtest.so.1.0.0",
+		"../../../modules/bin/libproxy.so.1.0.0"
 	]
 }
