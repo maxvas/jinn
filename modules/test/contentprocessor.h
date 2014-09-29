@@ -5,7 +5,7 @@
 #include <QString>
 #include <QJS>
 
-class TestContentProcessor : public RequestProcessor
+class ContentProcessor : public RequestProcessor
 {
 public:
     bool checkUrl(QString url, QJS &settings);

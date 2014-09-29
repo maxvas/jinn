@@ -1,16 +1,16 @@
 #ifndef TESTMODULE_H
 #define TESTMODULE_H
 
-#include "test_global.h"
+//#include "global.h"
 #include <jinnmodule.h>
 
-class MOD_TESTSHARED_EXPORT TestModule: public JinnModule
+class Module: public JinnModule
 {
     Q_OBJECT
     Q_PLUGIN_METADATA(IID "pro.jinn.api.JinnModule")
     Q_INTERFACES(JinnModule)
 public:
-    TestModule(QObject *parent=0);
+    Module(QObject *parent=0);
     QString name();
 };
 

@@ -6,10 +6,10 @@
 #include <QJS>
 #include <QTcpSocket>
 
-class ProxyProcessor : public RequestProcessor
+class ContentProcessor : public RequestProcessor
 {
 public:
-    explicit ProxyProcessor();
+    explicit ContentProcessor();
     QString settingsName();
     bool checkUrl(QString url, QJS &settings);
     void headerRecieved(QHttpManipulator *http, QJS &settings);

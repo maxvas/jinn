@@ -4,14 +4,15 @@
 #include <QObject>
 #include <jinnmodule.h>
 #include <qhttpresponseparser.h>
+//#include "global.h"
 
-class ProxyModule : public JinnModule
+class Module : public JinnModule
 {
     Q_OBJECT
     Q_PLUGIN_METADATA(IID "pro.jinn.api.JinnModule")
     Q_INTERFACES(JinnModule)
 public:
-    explicit ProxyModule(QObject *parent = 0);
+    explicit Module(QObject *parent = 0);
     QString name();
 
 private:

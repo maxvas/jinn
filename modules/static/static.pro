@@ -1,14 +1,13 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2014-08-11T15:59:24
+# Project created by QtCreator 2014-08-11T00:03:41
 #
 #-------------------------------------------------
 
 QT       -= gui
-QT       += network
 
 DESTDIR = ../bin
-TARGET = proxy
+TARGET = static
 TEMPLATE = lib
 
 DEFINES += LIBRARY
@@ -22,14 +21,12 @@ LIBS += -L"../../../qhttpparser/bin" -lqhttpparser
 INCLUDEPATH += "../../../qjs/src"
 LIBS += -L"../../../qjs/bin" -lqjs
 
-SOURCES += \
-    module.cpp \
+SOURCES += module.cpp \
     contentprocessor.cpp
 
-HEADERS +=\
-#    global.h \
-    module.h \
-    contentprocessor.h
+HEADERS += module.h\
+    contentprocessor.h \
+#    global.h
 
 unix {
     target.path = /usr/lib

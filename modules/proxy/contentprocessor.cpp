@@ -1,17 +1,17 @@
-#include "proxyprocessor.h"
+#include "contentprocessor.h"
 
-ProxyProcessor::ProxyProcessor() :
+ContentProcessor::ContentProcessor() :
     RequestProcessor()
 {
     responseParser = new QHttpResponseParser();
 }
 
-QString ProxyProcessor::settingsName()
+QString ContentProcessor::settingsName()
 {
     return "proxy";
 }
 
-bool ProxyProcessor::checkUrl(QString url, QJS &settings)
+bool ContentProcessor::checkUrl(QString url, QJS &settings)
 {
     if (settings.size()==0)
         return false;
@@ -32,7 +32,7 @@ bool ProxyProcessor::checkUrl(QString url, QJS &settings)
     return false;
 }
 
-void ProxyProcessor::headerRecieved(QHttpManipulator *http, QJS &settings)
+void ContentProcessor::headerRecieved(QHttpManipulator *http, QJS &settings)
 {
     http->echo("Здесь будет прокси<br>");
     http->echo(urlPath);

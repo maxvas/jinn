@@ -17,5 +17,11 @@
             "remotePort": 80,
             "remotePath": "/"
         }
-    ]
+    ],
+    "static":{
+        "folders":[
+            "www/folder1",
+            "www/subdir/folder2"
+        ]
+    }
 }
