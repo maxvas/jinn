@@ -19,13 +19,13 @@ private:
     QVector<QWebProcessor* > *busyProcessors;
     QVector<QWebProcessor* > *freeProcessors;
     QQueue<Connection> *connectionsQueue;
-    void getConnectionFromQueueAndStartIt();
 
 public slots:
     void newConnection(qint16 port, qintptr socketDescriptor);
 
 private slots:
     void onProcessorFinished();
+    void getConnectionFromQueueAndStartIt();
 
 };
 

@@ -29,6 +29,7 @@ private slots:
     void socketWrite(QByteArray data);
     void onParserFinished();
     void onParserHeaderRecieved();
+    void onSocketDisconnected();
 
 public slots:
 
