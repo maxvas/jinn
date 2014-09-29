@@ -3,7 +3,7 @@
 
 #include <jinnmodule.h>
 
-class  Module: public JinnModule
+class Module: public JinnModule
 {
     Q_OBJECT
     Q_PLUGIN_METADATA(IID "pro.jinn.api.JinnModule")

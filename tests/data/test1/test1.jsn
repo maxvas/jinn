@@ -7,7 +7,8 @@
 	"workersCount": 1,
 	"modules": [
 		"../../../modules/bin/libtest.so.1.0.0",
-                "../../../modules/bin/libproxy.so.1.0.0",
-                "../../../modules/bin/libqweber.so.1.0.0"
+		"../../../modules/bin/libproxy.so.1.0.0",
+        "../../../modules/bin/libstatic.so.1.0.0",
+        "../../../modules/bin/libqweber.so.1.0.0"
 	]
 }

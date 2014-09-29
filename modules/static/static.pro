@@ -25,8 +25,7 @@ SOURCES += module.cpp \
     contentprocessor.cpp
 
 HEADERS += module.h\
-    contentprocessor.h \
-#    global.h
+    contentprocessor.h
 
 unix {
     target.path = /usr/lib
