@@ -7,5 +7,6 @@ QTcpPortListener::QTcpPortListener(QObject *parent) :
 
 void QTcpPortListener::incomingConnection(qintptr socketDescriptor)
 {
+    qDebug()<<"incomingConnection: "<<socketDescriptor;
     emit newConnection(this->serverPort(), socketDescriptor);
 }

@@ -1,4 +1,6 @@
 #include "qwebprocessor.h"
+#include <QTcpSocket>
+#include <QTime>
 
 QWebProcessor::QWebProcessor(QObject *parent, QWebGlobalData* global) :
     QObject(parent), socket(0)
@@ -16,12 +18,20 @@ QWebProcessor::QWebProcessor(QObject *parent, QWebGlobalData* global) :
 bool QWebProcessor::newConnection(qint16 port, qintptr socketDescriptor)
 {
     if (socket)
-        return false;
-    this->port = port;
-    socket = new QTcpSocket();
-    connect(socket, SIGNAL(readyRead()), this, SLOT(socketRead()));
-    socket->setSocketDescriptor(socketDescriptor);
-    return true;
+    {
+        QTcpSocket *sock = new QTcpSocket();
+        sock->setSocketDescriptor(socketDescriptor);
+        sock->close();
+        sock->deleteLater();
+        return true;
+    }else
+    {
+        this->port = port;
+        socket = new QTcpSocket();
+        connect(socket, SIGNAL(readyRead()), this, SLOT(socketRead()));
+        socket->setSocketDescriptor(socketDescriptor);
+        return true;
+    }
 }
 
 void QWebProcessor::socketRead()
@@ -36,13 +46,13 @@ void QWebProcessor::socketRead()
     while (socket->bytesAvailable())
     {
         data += socket->read(bufsize);
-
     }
     parser->putData(data);
 }
 
 void QWebProcessor::socketWrite(QByteArray data)
 {
+    qDebug()<<"socketWriteStarted"<<QTime::currentTime().toString();
     if (!socket)
     {
         qDebug()<<"Как это могло случиться??? Сработал socketWrite(), а сокета нет!";
@@ -51,8 +61,13 @@ void QWebProcessor::socketWrite(QByteArray data)
     if (socket->isWritable())
     {
         socket->write(data);
-        socket->waitForBytesWritten();
+//        if (socket->state()!=QTcpSocket::ConnectedState)
+//        {
+//            onParserFinished();
+//        }
+//        socket->waitForBytesWritten();
     }
+    qDebug()<<"socketWriteFinished"<<QTime::currentTime().toString();
 }
 
 void QWebProcessor::onParserFinished()

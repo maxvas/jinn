@@ -1,13 +1,13 @@
-#include "testmodule.h"
-#include "testcontentprocessor.h"
+#include "qweber.h"
+#include "qwebercontentprocessor.h"
 
-TestModule::TestModule(QObject *parent)
+QWeber::QWeber(QObject *parent)
     :JinnModule(parent)
 {
-    this->contentProcessors.append(new TestContentProcessor());
+    this->contentProcessors.append(new QWeberContentProcessor());
 }
 
-QString TestModule::name()
+QString QWeber::name()
 {
-    return "mod_test";
+    return "qweber";
 }

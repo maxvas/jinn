@@ -25,7 +25,7 @@ SOURCES += qweber.cpp \
     qwebercontentprocessor.cpp
 
 HEADERS += qweber.h\
-        qweber_global.h \
+        global.h \
     qwebercontentprocessor.h
 
 unix {

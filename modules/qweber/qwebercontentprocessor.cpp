@@ -4,15 +4,12 @@
 bool QWeberContentProcessor::checkUrl(QString url, QJS &settings)
 {
     QStringList urls;
-    urls.append("/");
-    urls.append("/time");
+    urls.append("/qweber");
     return urls.contains(url);
 }
 
 void QWeberContentProcessor::headerRecieved(QHttpManipulator *http, QJS &settings)
 {
-    if (http->request()->path()=="/")
-        http->echo("Тестовый модуль");
-    if (http->request()->path()=="/time")
-        http->echo(QTime::currentTime().toString());
+    if (http->request()->path()=="/qweber")
+        http->echo("Здесь будет QWeber");
 }

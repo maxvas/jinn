@@ -1,0 +1,12 @@
+{
+    "name": "TestQWeber",
+    "hosts": [
+        {
+            "host": "localhost:7777",
+            "port": 7777
+        }
+    ],
+    "qweber": {
+
+    }
+}
