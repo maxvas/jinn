@@ -1,4 +1,5 @@
 #include "qhttpworker.h"
+#include <QTimer>
 
 QHttpWorker::QHttpWorker(QByteArray initData):
     QObject(0)
@@ -46,5 +47,5 @@ void QHttpWorker::onProcessorFinished()
     }
     busyProcessors->removeAt(pos);
     freeProcessors->push_back(processor);
-    getConnectionFromQueueAndStartIt();
+    QTimer::singleShot(1, this, SLOT(getConnectionFromQueueAndStartIt()));
 }

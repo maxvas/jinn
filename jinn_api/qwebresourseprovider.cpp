@@ -74,6 +74,7 @@ bool QWebResourseProvider::findContentProcessor(QString url)
 
 void QWebResourseProvider::headerRecieved(qint16 port, QHttpRequest *request, QHttpResponse *response)
 {
+    qDebug()<<request->path();
     http->setRequestResponse(request, response);
     QString host = request->host();
     if (!findProject(host, port))

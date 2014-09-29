@@ -17,6 +17,7 @@ QWebProcessor::QWebProcessor(QObject *parent, QWebGlobalData* global) :
 
 bool QWebProcessor::newConnection(qint16 port, qintptr socketDescriptor)
 {
+    qDebug()<<"QWebProcessor->newConnection()"<<socketDescriptor<<QTime::currentTime().toString();
     if (socket)
     {
         QTcpSocket *sock = new QTcpSocket();
@@ -29,6 +30,7 @@ bool QWebProcessor::newConnection(qint16 port, qintptr socketDescriptor)
         this->port = port;
         socket = new QTcpSocket();
         connect(socket, SIGNAL(readyRead()), this, SLOT(socketRead()));
+        connect(socket, SIGNAL(disconnected()), this, SLOT(onSocketDisconnected()));
         socket->setSocketDescriptor(socketDescriptor);
         return true;
     }
@@ -42,12 +44,16 @@ void QWebProcessor::socketRead()
         return;
     }
     qint64 bufsize = 1024*4;
-    QByteArray data;
-    while (socket->bytesAvailable())
+    while (socket)
     {
-        data += socket->read(bufsize);
+        if (!socket->bytesAvailable())
+        {
+            return;
+        }
+        QByteArray data;
+        data = socket->read(bufsize);
+        parser->putData(data);
     }
-    parser->putData(data);
 }
 
 void QWebProcessor::socketWrite(QByteArray data)
@@ -61,33 +67,35 @@ void QWebProcessor::socketWrite(QByteArray data)
     if (socket->isWritable())
     {
         socket->write(data);
-//        if (socket->state()!=QTcpSocket::ConnectedState)
-//        {
-//            onParserFinished();
-//        }
-//        socket->waitForBytesWritten();
+        if (socket->state()!=QTcpSocket::ConnectedState)
+        {
+            onParserFinished();
+        }
+        socket->waitForBytesWritten();
     }
     qDebug()<<"socketWriteFinished"<<QTime::currentTime().toString();
 }
 
 void QWebProcessor::onParserFinished()
 {
-    parser->free();
-    rp->free();
-    if (socket)
-    {
-        if (socket->isOpen())
-        {
-            socket->flush();
-            socket->disconnectFromHost();
-        }
-        socket->deleteLater();
-    }
-    socket = 0;
-    emit finished();
+    qDebug()<<"QWebProcessor->onParserFinished()"<<socket->socketDescriptor();
+    socket->waitForBytesWritten();
+    socket->flush();
+    socket->disconnectFromHost();
 }
 
 void QWebProcessor::onParserHeaderRecieved()
 {
     rp->headerRecieved(port, parser->request(), parser->response());
+}
+
+void QWebProcessor::onSocketDisconnected()
+{
+    qDebug()<<"QWebProcessor->socketDisconnected"<<socket->socketDescriptor()<<QTime::currentTime().toString();
+    parser->free();
+    rp->free();
+    socket->close();
+    socket->deleteLater();
+    socket = 0;
+    emit finished();
 }
