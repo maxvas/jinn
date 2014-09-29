@@ -1,0 +1,47 @@
+{
+    "type": "Ext.data.Store",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "data": [
+            "[",
+            "    {",
+            "        \"name\": \"Все\",",
+            "        \"value\": \"rerum\"",
+            "    },",
+            "    {",
+            "        \"name\": \"На месте\",",
+            "        \"value\": \"reiciendis\"",
+            "    },",
+            "    {",
+            "        \"name\": \"Поствызов\",",
+            "        \"value\": \"deserunt\"",
+            "    },",
+            "    {",
+            "        \"name\": \"Дозвон\",",
+            "        \"value\": \"quam\"",
+            "    },",
+            "    {",
+            "        \"name\": \"Разговор\",",
+            "        \"value\": \"quam\"",
+            "    },",
+            "    {",
+            "        \"name\": \"Занят\",",
+            "        \"value\": \"quam\"",
+            "    },",
+            "    {",
+            "        \"name\": \"Загрузка\",",
+            "        \"value\": \"quam\"",
+            "    }",
+            "]"
+        ],
+        "designer|userClassName": "ResultFields",
+        "model": "ResultField",
+        "storeId": "ResultFields"
+    },
+    "name": "MyStore",
+    "designerId": "d1513464-d20a-4c4c-90a1-9c5ad4302843"
+}

@@ -30,6 +30,7 @@ QWebResourseProvider::QWebResourseProvider(QObject *parent, QWebGlobalData *glob
             continue;
         }
         JinnModule *m = (JinnModule*)loader.instance();
+        m->init(global);
         this->modules[m->name()] = m;
     }
 }
@@ -62,7 +63,7 @@ bool QWebResourseProvider::findContentProcessor(QString url)
         QString name = m->name();
         foreach (RequestProcessor *cp, m->contentProcessors) {
             QJS &cpSettings = this->project->get(cp->settingsName());
-            if (cp->checkUrl(url, cpSettings)){
+            if (cp->checkUrl(url, this->project)){
                 this->cp = cp;
                 this->cpSettings = &cpSettings;
                 return true;
@@ -115,7 +116,7 @@ void QWebResourseProvider::bodyRecieved()
 void QWebResourseProvider::beforeSendHeaders()
 {
     QHttpHeadersList *headers = http->response()->headers();
-    headers->setIfAbsent("Connection", "keep-alive");
+    //headers->setIfAbsent("Connection", "keep-alive");
     headers->setIfAbsent("Content-Type", "text/html; charset=utf-8");
     //TODO: Добавить заголовок с датой
     //TODO: Добавить заголовок с именем и версией сервера

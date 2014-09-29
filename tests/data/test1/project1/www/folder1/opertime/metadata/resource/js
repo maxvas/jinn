@@ -1,0 +1,15 @@
+{
+    "type": "jsresource",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "js",
+        "includeInBundle": true,
+        "url": "http://cdn.sencha.com/ext/gpl/5.0.1/build/packages/ext-locale/build/ext-locale-ru.js"
+    },
+    "name": "js",
+    "designerId": "8abce0f7-54a7-488f-ba8f-7c3ee430ad39"
+}

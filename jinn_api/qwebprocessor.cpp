@@ -66,12 +66,11 @@ void QWebProcessor::socketWrite(QByteArray data)
     }
     if (socket->isWritable())
     {
-        socket->write(data);
-        if (socket->state()!=QTcpSocket::ConnectedState)
+        if (!socket->write(data))
         {
-            onParserFinished();
+            disconnectNetworkConnection();
         }
-        socket->waitForBytesWritten();
+        //socket->waitForBytesWritten();
     }
     qDebug()<<"socketWriteFinished"<<QTime::currentTime().toString();
 }
@@ -79,9 +78,15 @@ void QWebProcessor::socketWrite(QByteArray data)
 void QWebProcessor::onParserFinished()
 {
     qDebug()<<"QWebProcessor->onParserFinished()"<<socket->socketDescriptor();
-    socket->waitForBytesWritten();
-    socket->flush();
-    socket->disconnectFromHost();
+    disconnectNetworkConnection();
+}
+
+void QWebProcessor::disconnectNetworkConnection()
+{
+    if (socket->isOpen()){
+        socket->flush();
+        socket->disconnectFromHost();
+    }
 }
 
 void QWebProcessor::onParserHeaderRecieved()
@@ -92,9 +97,14 @@ void QWebProcessor::onParserHeaderRecieved()
 void QWebProcessor::onSocketDisconnected()
 {
     qDebug()<<"QWebProcessor->socketDisconnected"<<socket->socketDescriptor()<<QTime::currentTime().toString();
+    if (!socket)
+    {
+        qDebug()<<"Как это могло случиться??? Сработал onSocketDisconnected(), а сокета уже нет!";
+        return;
+    }
     parser->free();
     rp->free();
-    socket->close();
+    //socket->close();
     socket->deleteLater();
     socket = 0;
     emit finished();

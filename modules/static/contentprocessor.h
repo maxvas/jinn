@@ -8,9 +8,18 @@
 class ContentProcessor : public RequestProcessor
 {
 public:
-    bool checkUrl(QString url, QJS &settings);
+    ContentProcessor();
+    bool init(QWebGlobalData *global);
+    bool checkUrl(QString url, QWebProject *project);
     QString settingsName();
     void headerRecieved(QHttpManipulator *http, QJS &settings);
+private:
+    void loadMimeTypes(QString path);
+    void sendFile(QHttpManipulator *http);
+    QHash<QString, QString> mimeTypes;
+    QString filePath;
+    QList<QString> suffixes;
+
 };
 
 #endif // TESTCONTENTPROCESSOR_H

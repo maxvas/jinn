@@ -1,0 +1,47 @@
+{
+    "name": "opertime",
+    "settings": {
+        "cmd": {
+            "license": "commercial"
+        },
+        "canvasControls": {
+            "viewportSize": {
+                "name": "Auto Expand",
+                "builtIn": true,
+                "height": null,
+                "width": null
+            }
+        },
+        "urlPrefix": "",
+        "exportPath": ""
+    },
+    "xdsVersion": "3.1.0",
+    "xdsBuild": 1851,
+    "schemaVersion": 1,
+    "upgradeVersion": 300000000007,
+    "framework": "ext50",
+    "viewOrderMap": {
+        "view": [
+            "d160b9cf-a7bd-43b0-a400-1c2896119984",
+            "e860425a-66c4-439d-a20a-0cbf59fc95d9",
+            "60ee618d-0c7e-46c2-a326-819d51618b32"
+        ],
+        "store": [
+            "f713fcf9-9bc3-462d-baee-62641305a309",
+            "d1513464-d20a-4c4c-90a1-9c5ad4302843"
+        ],
+        "controller": [],
+        "model": [
+            "4748097c-ea99-43ff-b37f-b75ee014654d",
+            "7a37e779-f3e3-4edb-93b3-7545f383fdf5"
+        ],
+        "resource": [
+            "6fe789b0-9e5d-4f5f-b4c2-c811f0d8f520",
+            "add1d214-1ce1-43a0-a483-9003ba317c87",
+            "8abce0f7-54a7-488f-ba8f-7c3ee430ad39"
+        ],
+        "app": [
+            "application"
+        ]
+    }
+}

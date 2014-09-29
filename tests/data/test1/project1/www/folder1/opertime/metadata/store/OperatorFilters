@@ -1,0 +1,46 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "alternateClassName": [
+            "OperatorFilters"
+        ],
+        "data": [
+            "[",
+            "    {",
+            "        \"name\": \"Все\",",
+            "        \"sql\": \"ut\"",
+            "    },",
+            "    {",
+            "        \"name\": \"Входящие\",",
+            "        \"sql\": \"\"",
+            "    },",
+            "    {",
+            "        \"name\": \"Исходящие\",",
+            "        \"sql\": \"\"",
+            "    },",
+            "    {",
+            "        \"name\": \"Иванова Елена\",",
+            "        \"sql\": \"\"",
+            "    },",
+            "    {",
+            "        \"name\": \"Кузнецова Светлана\",",
+            "        \"sql\": \"\"",
+            "    },",
+            "    {",
+            "        \"name\": \"Сидоров Иван\",",
+            "        \"sql\": \"\"",
+            "    }",
+            "]"
+        ],
+        "designer|userClassName": "OperatorFilters",
+        "model": "OperatorFilter",
+        "storeId": "OperatorFilters"
+    },
+    "name": "MyJsonStore",
+    "designerId": "f713fcf9-9bc3-462d-baee-62641305a309"
+}

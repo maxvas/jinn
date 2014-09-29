@@ -14,6 +14,7 @@ class JINN_APISHARED_EXPORT QWebProcessor : public QObject
 public:
     explicit QWebProcessor(QObject *parent, QWebGlobalData *global);
     bool newConnection(qint16 port, qintptr socketDescriptor);
+    void disconnectNetworkConnection();
 
 private:
     QTcpSocket* socket;

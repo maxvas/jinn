@@ -10,6 +10,7 @@ class JINN_APISHARED_EXPORT JinnModule: public QObject
     Q_OBJECT
 public:
     JinnModule(QObject *parent = 0);
+    bool init(QWebGlobalData *global);
     virtual QString name() = 0;
     QList<RequestProcessor* > contentProcessors;
 };

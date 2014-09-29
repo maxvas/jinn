@@ -5,19 +5,25 @@
 #include <qhttpmanipulator.h>
 #include <QByteArray>
 #include <QJS>
+#include <QWebGlobalData>
 
 class QHttpManipulator;
 
 class RequestProcessor
 {
 public:
+
     virtual QString settingsName(){
         return "settings";
     }
 
-    virtual bool checkUrl(QString url, QJS &settings){
+    virtual bool init(QWebGlobalData *global){
+        (void)global;
+        return true;
+    }
+    virtual bool checkUrl(QString url, QWebProject *project){
         (void)url;
-        (void)settings;
+        (void)project;
         return false;
     }
     virtual void headerRecieved(QHttpManipulator *http, QJS &settings){
@@ -41,6 +47,8 @@ public:
     }
     virtual void clear(){
     }
+
+    QWebGlobalData *global;
 
 };
 

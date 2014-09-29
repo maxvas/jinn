@@ -1,0 +1,245 @@
+{
+    "type": "Ext.container.Viewport",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "container|align": "stretch",
+        "designer|initialView": true,
+        "designer|userAlias": "myviewport",
+        "designer|userClassName": "MyViewport",
+        "layout": "vbox"
+    },
+    "name": "MyViewport",
+    "designerId": "d160b9cf-a7bd-43b0-a400-1c2896119984",
+    "viewControllerInstanceId": "60ee618d-0c7e-46c2-a326-819d51618b32",
+    "viewModelInstanceId": "e860425a-66c4-439d-a20a-0cbf59fc95d9",
+    "cn": [
+        {
+            "type": "Ext.panel.Panel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "container|align": "stretch",
+                "height": null,
+                "layout": "vbox",
+                "layout|flex": null,
+                "title": "Запрос"
+            },
+            "name": "MyPanel",
+            "designerId": "500cc6ba-0e46-482e-9b41-94b32830e580",
+            "cn": [
+                {
+                    "type": "Ext.container.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|align": "stretch",
+                        "container|padding": 7,
+                        "height": null,
+                        "layout": "hbox",
+                        "layout|flex": null,
+                        "maxHeight": null
+                    },
+                    "name": "MyContainer1",
+                    "designerId": "6fd6a405-1948-480e-9369-cc8e6c56e837",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.Date",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "Период с",
+                                "format": "d.m.Y",
+                                "labelWidth": 60,
+                                "value": 1409508000000
+                            },
+                            "name": "MyDateField",
+                            "designerId": "a2656fda-b0c2-4648-b53a-95d0f006422b"
+                        },
+                        {
+                            "type": "Ext.container.Container",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "width": 60
+                            },
+                            "name": "MyContainer4",
+                            "designerId": "5eb02678-8bb2-4026-8a20-8dc58de41352"
+                        },
+                        {
+                            "type": "Ext.form.field.Date",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fieldLabel": "по",
+                                "format": "d.m.Y",
+                                "labelWidth": 30,
+                                "value": 1412013600000
+                            },
+                            "name": "MyDateField1",
+                            "designerId": "b6984aa3-68e6-4ee1-860c-c6c7ac4ad264"
+                        },
+                        {
+                            "type": "Ext.container.Container",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "width": 60
+                            },
+                            "name": "MyContainer7",
+                            "designerId": "e2e38057-60b9-489c-8149-3445f77b01fb"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.container.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|align": "stretch",
+                        "container|padding": 7,
+                        "height": null,
+                        "layout": "hbox",
+                        "layout|flex": null
+                    },
+                    "name": "MyContainer2",
+                    "designerId": "22937d4c-36fb-4237-9100-227ed446706d",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.ComboBox",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "displayField": "name",
+                                "editable": false,
+                                "fieldLabel": "Операторы",
+                                "forceSelection": true,
+                                "labelWidth": 150,
+                                "layout|flex": null,
+                                "multiSelect": true,
+                                "store": "OperatorFilters",
+                                "valueField": "sql",
+                                "width": 460
+                            },
+                            "name": "MyComboBox1",
+                            "designerId": "8469ea36-3a1d-4a73-8bf0-c3f2372a830f"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.container.Container",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "container|align": "stretch",
+                        "container|padding": 7,
+                        "height": null,
+                        "layout": "hbox",
+                        "layout|flex": null
+                    },
+                    "name": "MyContainer3",
+                    "designerId": "8e10a32b-0920-4493-a16f-728f0695ab3d",
+                    "cn": [
+                        {
+                            "type": "Ext.form.field.ComboBox",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "displayField": "name",
+                                "editable": false,
+                                "fieldLabel": "Сформировать графики",
+                                "labelWidth": 150,
+                                "layout|flex": null,
+                                "multiSelect": true,
+                                "queryMode": "local",
+                                "store": "ResultFields",
+                                "valueField": "value",
+                                "width": 460
+                            },
+                            "name": "MyComboBox2",
+                            "designerId": "c965119a-be6a-48b3-914e-a42fb1dada40"
+                        },
+                        {
+                            "type": "Ext.container.Container",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "maxWidth": null,
+                                "width": 33
+                            },
+                            "name": "MyContainer6",
+                            "designerId": "0648c810-5688-4be0-8c20-2e635159c2f1"
+                        },
+                        {
+                            "type": "Ext.button.Button",
+                            "reference": {
+                                "name": "items",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "layout|flex": null,
+                                "text": "Сформировать",
+                                "width": 100
+                            },
+                            "name": "MyButton2",
+                            "designerId": "8dd6020b-a4d6-434c-9545-6801dafd07c0"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.container.Container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "layout|flex": 1
+            },
+            "name": "MyContainer",
+            "designerId": "b78ab4c1-fb4f-4326-b104-3a8dbd17f7ac"
+        }
+    ]
+}
