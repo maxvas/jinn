@@ -12,27 +12,69 @@ QWebResourseProvider::QWebResourseProvider(QObject *parent, QWebGlobalData *glob
 {
     http = new QHttpManipulator();
     QJS modules = global->settings().modules();
-    QDir dir = global->settings().dir();
-    cout<<"Modules:\n";
-
-    for (QJS::iterator i=modules.begin(); i!=modules.end(); ++i)
-    {
-        QJS &module = (*i);
-        QString fileName = module.toString();
-        fileName = dir.absoluteFilePath(fileName);
-        QFileInfo fileInfo(fileName);
-        fileName = fileInfo.absoluteFilePath();
-        cout<<fileName.toStdString()<<endl;
-        QPluginLoader loader(fileName);
-        if (!loader.load())
-        {
-            qDebug()<<loader.errorString();
-            continue;
-        }
-        JinnModule *m = (JinnModule*)loader.instance();
-        m->init(global);
-        this->modules[m->name()] = m;
+    QDir configDir = global->settings().dir();
+    QDir dir(configDir);
+    if(!dir.cd(global->settings().modulesFolder())){
+        qDebug()<<"директория с модулями не найдена";
+        return;
     }
+    QStringList filters;
+    QString libExtansion;
+    #ifdef _WIN32 || _WIN64
+    filters << "*.dll";
+    libExtansion=".dll"
+    #endif
+    //#endif
+    #ifdef __unix
+    filters << "*.so" ;
+    libExtansion=".so";
+    #endif
+
+    dir.setNameFilters(filters);
+    QStringList moduleList=dir.entryList(filters,QDir::Files);
+    cout<<"Modules:\n";
+    foreach (QString fileName, moduleList) {
+        for (QJS::iterator i=modules.begin(); i!=modules.end(); ++i){
+            QString moduleName = (*i).toString();
+            QString bla="lib"+moduleName+libExtansion;
+            if(fileName=="lib"+moduleName+libExtansion){
+                cout<<moduleName.toStdString()<<endl;
+                QPluginLoader loader(dir.absoluteFilePath(fileName));
+                if (!loader.load())
+                {
+                    qDebug()<<loader.errorString();
+                    continue;
+                }
+                JinnModule *m = (JinnModule*)loader.instance();
+                m->init(global);
+                this->modules[m->name()] = m;
+                if(!configDir.exists(moduleName)){
+                    configDir.mkdir(moduleName);
+                }
+                break;
+            }
+        }
+    }
+
+//    for (QJS::iterator i=modules.begin(); i!=modules.end(); ++i)
+//    {
+//        QJS &module = (*i);
+//        QString fileName = module.toString();
+
+//        fileName = dir.absoluteFilePath(fileName);
+//        QFileInfo fileInfo(fileName);
+//        fileName = fileInfo.absoluteFilePath();
+//        cout<<fileName.toStdString()<<endl;
+//        QPluginLoader loader(fileName);
+//        if (!loader.load())
+//        {
+//            qDebug()<<loader.errorString();
+//            continue;
+//        }
+//        JinnModule *m = (JinnModule*)loader.instance();
+//        m->init(global);
+//        this->modules[m->name()] = m;
+//    }
 }
 
 bool QWebResourseProvider::findProject(QString host, qint16 port)

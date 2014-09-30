@@ -6,12 +6,12 @@
 #include <QJS>
 #include <QTcpSocket>
 
-class ContentProcessor : public RequestProcessor
+class ProxyProcessor : public RequestProcessor
 {
 public:
-    explicit ContentProcessor();
+    explicit ProxyProcessor();
     QString settingsName();
-    bool checkUrl(QString url, QJS &settings);
+    bool checkUrl(QString url, QWebProject *project);
     void headerRecieved(QHttpManipulator *http, QJS &settings);
 //    void bodyDataBlockRecieved(QByteArray data, QJS &settings);
 //    void bodyRecieved(QHttpManipulator *http, QJS &settings);

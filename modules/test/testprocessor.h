@@ -5,10 +5,10 @@
 #include <QString>
 #include <QJS>
 
-class ContentProcessor : public RequestProcessor
+class TestProcessor : public RequestProcessor
 {
 public:
-    bool checkUrl(QString url, QJS &settings);
+    bool checkUrl(QString url, QWebProject *settings);
     void headerRecieved(QHttpManipulator *http, QJS &settings);
 };
 

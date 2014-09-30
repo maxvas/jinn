@@ -1,7 +1,7 @@
-#include "contentprocessor.h"
+#include "testprocessor.h"
 #include <QTime>
 
-bool ContentProcessor::checkUrl(QString url, QJS &settings)
+bool TestProcessor::checkUrl(QString url, QWebProject *settings)
 {
     QStringList urls;
     urls.append("/");
@@ -9,7 +9,7 @@ bool ContentProcessor::checkUrl(QString url, QJS &settings)
     return urls.contains(url);
 }
 
-void ContentProcessor::headerRecieved(QHttpManipulator *http, QJS &settings)
+void TestProcessor::headerRecieved(QHttpManipulator *http, QJS &settings)
 {
     if (http->request()->path()=="/")
         http->echo("Тестовый модуль");

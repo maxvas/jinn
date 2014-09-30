@@ -21,12 +21,14 @@ LIBS += -L"../../../qhttpparser/bin" -lqhttpparser
 INCLUDEPATH += "../../../qjs/src"
 LIBS += -L"../../../qjs/bin" -lqjs
 
-SOURCES += module.cpp \
-    contentprocessor.cpp
+SOURCES += \
+    testmodule.cpp \
+    testprocessor.cpp
 
-HEADERS += module.h\
-    contentprocessor.h \
+HEADERS +=\
 #    global.h
+    testmodule.h \
+    testprocessor.h
 
 unix {
     target.path = /usr/lib

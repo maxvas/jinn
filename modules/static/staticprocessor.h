@@ -5,10 +5,10 @@
 #include <QString>
 #include <QJS>
 
-class ContentProcessor : public RequestProcessor
+class StaticProcessor : public RequestProcessor
 {
 public:
-    ContentProcessor();
+    StaticProcessor();
     bool init(QWebGlobalData *global);
     bool checkUrl(QString url, QWebProject *project);
     QString settingsName();

@@ -1,15 +1,15 @@
-#include "contentprocessor.h"
+#include "staticprocessor.h"
 #include <QTime>
 #include <QFile>
 #include <QDir>
 #include <QDebug>
 #include <QFileInfo>
 
-ContentProcessor::ContentProcessor()
+StaticProcessor::StaticProcessor()
 {
 }
 
-bool ContentProcessor::init(QWebGlobalData *global)
+bool StaticProcessor::init(QWebGlobalData *global)
 {
     suffixes.append("");
     suffixes.append("index.html");
@@ -22,7 +22,7 @@ bool ContentProcessor::init(QWebGlobalData *global)
     suffixes.append("/index.php");
     //read MimeTypes
     QString settingsDir = global->dir();
-    QString mimeConfig = settingsDir+"mime.types";
+    QString mimeConfig = settingsDir+"/"+StaticProcessor::settingsName()+"/mime.types";
     if (!QFile::exists(mimeConfig))
     {
         qDebug()<<"mime.types expected";
@@ -32,7 +32,7 @@ bool ContentProcessor::init(QWebGlobalData *global)
     return true;
 }
 
-bool ContentProcessor::checkUrl(QString url, QWebProject *project)
+bool StaticProcessor::checkUrl(QString url, QWebProject *project)
 {
     if (url.indexOf("?")>0)
         url = url.section("?", 0, 0);
@@ -58,17 +58,17 @@ bool ContentProcessor::checkUrl(QString url, QWebProject *project)
     return false;
 }
 
-QString ContentProcessor::settingsName()
+QString StaticProcessor::settingsName()
 {
     return "static";
 }
 
-void ContentProcessor::headerRecieved(QHttpManipulator *http, QJS &settings)
+void StaticProcessor::headerRecieved(QHttpManipulator *http, QJS &settings)
 {
     sendFile(http);
 }
 
-void ContentProcessor::loadMimeTypes(QString path)
+void StaticProcessor::loadMimeTypes(QString path)
 {
     QFile file(path);
     if (file.open(QIODevice::ReadOnly | QIODevice::Text))
@@ -107,7 +107,7 @@ QString getExt(QString path)
     return path.right(path.length()-path.lastIndexOf(".")-1);
 }
 
-void ContentProcessor::sendFile(QHttpManipulator *http)
+void StaticProcessor::sendFile(QHttpManipulator *http)
 {
     QFile file(filePath);
     if (file.open(QIODevice::ReadOnly))

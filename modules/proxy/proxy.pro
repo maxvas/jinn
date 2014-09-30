@@ -23,13 +23,13 @@ INCLUDEPATH += "../../../qjs/src"
 LIBS += -L"../../../qjs/bin" -lqjs
 
 SOURCES += \
-    module.cpp \
-    contentprocessor.cpp
+    proxymodule.cpp \
+    proxyprocessor.cpp
 
 HEADERS +=\
 #    global.h \
-    module.h \
-    contentprocessor.h
+    proxymodule.h \
+    proxyprocessor.h
 
 unix {
     target.path = /usr/lib
