@@ -2,7 +2,7 @@
 #define JINN_MODULE_H
 
 #include "jinn_api_global.h"
-#include <requestprocessor.h>
+#include "requestprocessor.h"
 #include <QObject>
 
 class JINN_APISHARED_EXPORT JinnModule: public QObject

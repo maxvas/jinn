@@ -10,6 +10,8 @@ bool JinnModule::init(QWebGlobalData *global)
 {
     foreach(RequestProcessor* rp, contentProcessors)
     {
-        rp->init(global);
+        if(!rp->init(global))
+            return false;
     }
+    return true;
 }

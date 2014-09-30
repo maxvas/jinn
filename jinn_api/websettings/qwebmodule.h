@@ -2,7 +2,7 @@
 #define QWEBMODULE_H
 
 #include <QJSMapping>
-#include "jinn_api_global.h"
+#include "../jinn_api_global.h"
 #include "qwebcontentpath.h"
 
 class JINN_APISHARED_EXPORT QWebModule : public QJSMapping

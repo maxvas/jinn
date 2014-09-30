@@ -2,10 +2,10 @@
 #define QWEBPROCESSOR_H
 
 #include <QObject>
-#include <QWebGlobalData>
+#include "QWebGlobalData"
 #include <QTcpSocket>
 #include <QHttpRequestParser>
-#include <qwebresourseprovider.h>
+#include "qwebresourseprovider.h"
 #include "jinn_api_global.h"
 
 class JINN_APISHARED_EXPORT QWebProcessor : public QObject

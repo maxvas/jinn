@@ -1,6 +1,6 @@
 #include "qwebproject.h"
 #include <QFile>
-#include "qwebglobaldata.h"
+#include "../qwebglobaldata.h"
 #include "qwebmodule.h"
 #include "qwebproxy.h"
 

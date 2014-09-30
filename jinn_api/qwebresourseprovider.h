@@ -4,7 +4,7 @@
 #include <QObject>
 #include <QHttpRequest>
 #include <QHttpResponse>
-#include <QWebGlobalData>
+#include "qwebglobaldata.h"
 #include "qhttpmanipulator.h"
 #include "requestprocessor.h"
 #include "jinnmodule.h"

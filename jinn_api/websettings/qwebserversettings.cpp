@@ -3,7 +3,7 @@
 #include <QFile>
 #include <qlogging.h>
 #include <QLoggingCategory>
-#include "qwebglobaldata.h"
+#include "../qwebglobaldata.h"
 
 void QWebServerSettings::addProject(QString prjFileName)
 {

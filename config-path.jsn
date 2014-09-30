@@ -1,0 +1,12 @@
+{
+	"prjFiles": [
+                "project1/project1.prj",
+                "testqweber/test.prj"
+	],
+	"connectionsPerWorker": 1,
+	"workersCount": 1,
+	"modulesFolder":"modules/bin/",
+	"modules": [
+		"test"
+	]
+}

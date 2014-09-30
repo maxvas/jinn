@@ -8,7 +8,7 @@
 #include "qwebmodule.h"
 #include "qwebmodulelink.h"
 #include "qwebhost.h"
-#include "jinn_api_global.h"
+#include "../jinn_api_global.h"
 
 class JINN_APISHARED_EXPORT QWebProject : public QJS
 {

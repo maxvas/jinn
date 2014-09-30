@@ -7,6 +7,7 @@ int main(int argc, char *argv[])
     QCoreApplication a(argc, argv);
     QString exePath = a.applicationDirPath();
     QDir dir(exePath);
+//    QString settingsPath = dir.filePath("../config-path.jsn");
     QString settingsPath = dir.filePath("../tests/data/test1/test1.jsn");
     QWebServer server(settingsPath);
     server.start();

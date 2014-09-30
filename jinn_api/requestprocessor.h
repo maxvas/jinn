@@ -5,7 +5,7 @@
 #include <qhttpmanipulator.h>
 #include <QByteArray>
 #include <QJS>
-#include <QWebGlobalData>
+#include "QWebGlobalData"
 
 class QHttpManipulator;
 
