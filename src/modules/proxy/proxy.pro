@@ -4,7 +4,8 @@
 #
 #-------------------------------------------------
 
-QT       -= gui
+QT -= gui
+QT += network
 
 DESTDIR = $$PWD"/../bin"
 TARGET = proxy
