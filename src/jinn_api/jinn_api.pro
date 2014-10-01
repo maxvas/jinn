@@ -7,18 +7,18 @@
 QT       -= gui
 QT       += network
 
-DESTDIR = ../bin
+DESTDIR = ../../bin
 
 TARGET = jinn_api
 TEMPLATE = lib
 
 DEFINES += JINN_API_LIBRARY
 
-INCLUDEPATH += "../../qjs/src"
-LIBS += -L"../../qjs/bin" -lqjs
+INCLUDEPATH += "../../../qjs/src"
+LIBS += -L"../../../qjs/bin" -lqjs
 
-INCLUDEPATH += "../../qhttpparser/src"
-LIBS += -L"../../qhttpparser/bin" -lqhttpparser
+INCLUDEPATH += "../qhttpparser"
+LIBS += -L"../../bin" -lqhttpparser
 
 SOURCES += jinnmodule.cpp \
     websettings/qwebcontentpath.cpp \

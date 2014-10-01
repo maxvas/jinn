@@ -2,16 +2,16 @@ QT       += network
 QT       -= gui
 
 TEMPLATE = app
-DESTDIR = ../bin
+DESTDIR = ../../bin
 
-INCLUDEPATH += "../../qjs/src"
-LIBS += -L"../../qjs/bin" -lqjs
+INCLUDEPATH += "../../../qjs/src"
+LIBS += -L"../../../qjs/bin" -lqjs
 
-INCLUDEPATH += "../../qhttpparser/src"
-LIBS += -L"../../qhttpparser/bin" -lqhttpparser
+INCLUDEPATH += "../qhttpparser"
+LIBS += -L"../../bin" -lqhttpparser
 
 INCLUDEPATH += "../jinn_api"
-LIBS += -L"../bin" -ljinn_api
+LIBS += -L"../../bin" -ljinn_api
 
 include(../qtservice/src/qtservice.pri)
 

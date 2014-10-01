@@ -6,29 +6,28 @@
 
 QT       -= gui
 
-DESTDIR = ../bin
-TARGET = test
+DESTDIR = $$PWD"/../bin"
+TARGET = static
 TEMPLATE = lib
 
 DEFINES += LIBRARY
 
 INCLUDEPATH += "../../jinn_api"
-LIBS += -L"../../bin" -ljinn_api
+LIBS += -L"../../../bin" -ljinn_api
 
-INCLUDEPATH += "../../../qhttpparser/src"
-LIBS += -L"../../../qhttpparser/bin" -lqhttpparser
+INCLUDEPATH += "../../qhttpparser"
+LIBS += -L"../../../bin" -lqhttpparser
 
-INCLUDEPATH += "../../../qjs/src"
-LIBS += -L"../../../qjs/bin" -lqjs
+INCLUDEPATH += "../../../../qjs/src"
+LIBS += -L"../../../../qjs/bin" -lqjs
 
 SOURCES += \
-    testmodule.cpp \
-    testprocessor.cpp
+    staticprocessor.cpp \
+    staticmodule.cpp
 
 HEADERS +=\
-#    global.h
-    testmodule.h \
-    testprocessor.h
+    staticmodule.h \
+    staticprocessor.h
 
 unix {
     target.path = /usr/lib

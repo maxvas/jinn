@@ -6,20 +6,20 @@
 
 QT       -= gui
 
-DESTDIR = ../bin
+DESTDIR = $$PWD"/../bin"
 TARGET = qweber
 TEMPLATE = lib
 
 DEFINES += QWEBER_LIBRARY
 
 INCLUDEPATH += "../../jinn_api"
-LIBS += -L"../../bin" -ljinn_api
+LIBS += -L"../../../bin" -ljinn_api
 
-INCLUDEPATH += "../../../qhttpparser/src"
-LIBS += -L"../../../qhttpparser/bin" -lqhttpparser
+INCLUDEPATH += "../../qhttpparser"
+LIBS += -L"../../../bin" -lqhttpparser
 
-INCLUDEPATH += "../../../qjs/src"
-LIBS += -L"../../../qjs/bin" -lqjs
+INCLUDEPATH += "../../../../qjs/src"
+LIBS += -L"../../../../qjs/bin" -lqjs
 
 SOURCES += qweber.cpp \
     qwebercontentprocessor.cpp
