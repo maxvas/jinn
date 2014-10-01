@@ -32,7 +32,7 @@ void QHttpWorker::getConnectionFromQueueAndStartIt()
         return;
     Connection connection = connectionsQueue->dequeue();
     QWebProcessor* processor = freeProcessors->first();
-    freeProcessors->removeFirst();
+    freeProcessors->remove(0);
     busyProcessors->push_back(processor);
     processor->newConnection(connection.first, connection.second);
 }
@@ -45,7 +45,7 @@ void QHttpWorker::onProcessorFinished()
     {
         return;
     }
-    busyProcessors->removeAt(pos);
+    busyProcessors->remove(pos);
     freeProcessors->push_back(processor);
     QTimer::singleShot(1, this, SLOT(getConnectionFromQueueAndStartIt()));
 }
