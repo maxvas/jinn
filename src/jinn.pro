@@ -4,7 +4,6 @@ TEMPLATE = subdirs
 CONFIG += ordered
 
 SUBDIRS += \
-    ../../qjs/src/qjs.pro \
     qhttpparser/qhttpparser.pro \
     core \
     jinnd \
