@@ -4,7 +4,7 @@
 	],
 	"connectionsPerWorker": 1,
 	"workersCount": 1,
-	"modulesFolder":"../modules/bin/",
+	"modulesFolder":"../src/modules/bin/",
 	"modules": [
 		"test",
 		"proxy",

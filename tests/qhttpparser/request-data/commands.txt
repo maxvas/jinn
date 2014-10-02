@@ -1,0 +1,1 @@
+curl -D req0.resp http://app.city-call.ru/otp/sberbank-tumen/card/app/store/KAStore.js >> req0.resp
