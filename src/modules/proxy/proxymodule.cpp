@@ -6,8 +6,3 @@ ProxyModule::ProxyModule(QObject *parent) :
 {
     this->contentProcessors.append(new ProxyProcessor());
 }
-
-QString ProxyModule::name()
-{
-    return "proxy";
-}

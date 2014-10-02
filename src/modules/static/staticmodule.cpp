@@ -6,8 +6,3 @@ StaticModule::StaticModule(QObject *parent)
 {
     this->contentProcessors.append(new StaticProcessor());
 }
-
-QString StaticModule::name()
-{
-    return "static";
-}

@@ -6,8 +6,3 @@ TestModule::TestModule(QObject *parent)
 {
     this->contentProcessors.append(new TestProcessor());
 }
-
-QString TestModule::name()
-{
-    return "test";
-}

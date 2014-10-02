@@ -39,7 +39,6 @@ QWebResourseProvider::QWebResourseProvider(QObject *parent, QWebGlobalData *glob
             QString moduleName = (*i).toString();
             QString bla="lib"+moduleName+libExtansion;
             if(fileName.contains(moduleName+libExtansion)){
-                qDebug()<<moduleName;
                 QPluginLoader loader(dir.absoluteFilePath(fileName));
                 if (!loader.load())
                 {
@@ -48,7 +47,8 @@ QWebResourseProvider::QWebResourseProvider(QObject *parent, QWebGlobalData *glob
                 }
                 JinnModule *m = (JinnModule*)loader.instance();
                 m->init(global);
-                this->modules[m->name()] = m;
+                qDebug()<<moduleName;
+                this->modules[moduleName] = m;
                 if(!configDir.exists(moduleName)){
                     configDir.mkdir(moduleName);
                 }
