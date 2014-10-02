@@ -110,13 +110,13 @@ void QWebResourseProvider::headerRecieved(qint16 port, QHttpRequest *request, QH
     if (!findContentProcessor(http->request()->path()))
     {
         http->responseCode(QHttpStatusCodes::NotFound);
+        http->echo("404 Page not found");
         http->finish();
         return;
     }
     if (cp)
     {
         cp->headerRecieved(http, *cpSettings);
-        http->finish();
     }
 }
 

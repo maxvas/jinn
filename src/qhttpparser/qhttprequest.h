@@ -36,6 +36,7 @@ signals:
 
 public slots:
 
+
 };
 
 #endif // QHTTPREQUEST_H

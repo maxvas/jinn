@@ -10,6 +10,7 @@ class TestProcessor : public RequestProcessor
 public:
     bool checkUrl(QString url, QWebProject *settings);
     void headerRecieved(QHttpManipulator *http, QJS &settings);
+    void bodyRecieved(QHttpManipulator *http, QJS &settings);
 };
 
 #endif // TESTCONTENTPROCESSOR_H
