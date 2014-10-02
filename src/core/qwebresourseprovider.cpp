@@ -85,9 +85,11 @@ bool QWebResourseProvider::findContentProcessor(QString url)
     for (QJS::iterator it = prjModules.begin(); it!=prjModules.end(); ++it)
     {
         QJS &modulePrjEntry = *it;
-        if (modules.contains(modulePrjEntry.key()))
+        QString moduleName = modulePrjEntry.key();
+        if (!modules.contains(moduleName))
         {
             qDebug()<<project->name()+" references to unloaded module: "+modulePrjEntry.key();
+            continue;
         }
         JinnModule *m = modules[modulePrjEntry.key()];
         foreach (RequestProcessor *cp, m->contentProcessors) {
