@@ -1,0 +1,13 @@
+{
+	"prjFiles": [
+                "../tests/projects/project1/project1.prj"
+	],
+	"connectionsPerWorker": 1,
+	"workersCount": 1,
+	"modulesFolder":"../src/modules/bin/",
+	"modules": [
+		"test",
+		"proxy",
+		"static"
+	]
+}
