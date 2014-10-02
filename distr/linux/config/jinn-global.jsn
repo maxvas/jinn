@@ -1,6 +1,6 @@
 {
 	"prjFiles": [
-                "/opt/git/maxvas/jinn/tests/projects/project1"
+                "/opt/git/maxvas/jinn/tests/projects/project1/project1.prj"
 	],
 	"connectionsPerWorker": 1,
 	"workersCount": 1,

@@ -11,9 +11,11 @@ class QWebServer : public QObject
 public:
     QWebServer(QString settingsFile);
     void start();
+    void stop();
 
 private:
     QWebListener *listener;
+    QList<QHttpWorkerThread* > workers;
     QString settingsFileName;
 
 signals:

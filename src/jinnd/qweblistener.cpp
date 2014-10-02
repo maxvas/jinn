@@ -20,5 +20,13 @@ QWebListener::QWebListener(QObject *parent, QWebGlobalData *global) :
         QTcpPortListener *portListener = new QTcpPortListener(this);
         connect(portListener, SIGNAL(newConnection(qint16,qintptr)), this, SIGNAL(newConnection(qint16,qintptr)));
         portListener->listen(QHostAddress::Any, port);
+        listeners.append(portListener);
+    }
+}
+
+QWebListener::~QWebListener()
+{
+    foreach (QTcpPortListener *portListener, listeners) {
+        delete portListener;
     }
 }
