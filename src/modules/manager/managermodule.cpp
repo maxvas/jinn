@@ -6,8 +6,3 @@ ManagerModule::ManagerModule(QObject *parent)
 {
     this->contentProcessors.append(new ManagerProcessor());
 }
-
-QString ManagerModule::name()
-{
-    return "test";
-}

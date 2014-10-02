@@ -1,6 +1,7 @@
 {
 	"prjFiles": [
-        "../tests/projects/project1/project1.prj"
+        "../tests/projects/project1/project1.prj",
+        "../tests/projects/manager/manager.prj"
 	],
 	"connectionsPerWorker": 1,
 	"workersCount": 1,
@@ -8,6 +9,7 @@
 	"modules": [
 		"test",
 		"proxy",
-		"static"
+		"static",
+		"manager"
 	]
 }

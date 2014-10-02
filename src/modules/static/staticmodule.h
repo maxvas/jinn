@@ -10,7 +10,6 @@ class StaticModule: public JinnModule
     Q_INTERFACES(JinnModule)
 public:
     StaticModule(QObject *parent=0);
-    QString name();
 };
 
 #endif // JINNTESTMODULE_H

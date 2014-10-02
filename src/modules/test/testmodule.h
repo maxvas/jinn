@@ -11,7 +11,6 @@ class TestModule: public JinnModule
     Q_INTERFACES(JinnModule)
 public:
     TestModule(QObject *parent=0);
-    QString name();
 };
 
 #endif // JINNTESTMODULE_H

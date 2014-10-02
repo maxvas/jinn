@@ -6,18 +6,14 @@
             "port": 3444
         },
         {
-            "host": "manager:3344",
-            "port": 3444
-        },
-        {
-            "host": "manager",
+            "host": "manager:3444",
             "port": 3444
         }
     ],
-    "modules":[
+    "modules":{
         "manager": {
-
+            "a":4
         }
-    ]
+    }
     
 }

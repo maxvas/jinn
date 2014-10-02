@@ -13,7 +13,6 @@ class ProxyModule : public JinnModule
     Q_INTERFACES(JinnModule)
 public:
     explicit ProxyModule(QObject *parent = 0);
-    QString name();
 
 private:
 

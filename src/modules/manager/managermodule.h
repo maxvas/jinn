@@ -11,7 +11,6 @@ class ManagerModule: public JinnModule
     Q_INTERFACES(JinnModule)
 public:
     ManagerModule(QObject *parent=0);
-    QString name();
 };
 
 #endif // JINNTESTMODULE_H

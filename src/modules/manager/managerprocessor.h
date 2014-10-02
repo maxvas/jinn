@@ -8,8 +8,7 @@
 class ManagerProcessor : public RequestProcessor
 {
 public:
-    bool checkUrl(QString url, QWebProject *settings, QWebProject &project);
-    void headerRecieved(QHttpManipulator *http, QJS &settings);
+    bool checkUrl(QString url, QJS &settings, QWebProject &project);
     void bodyRecieved(QHttpManipulator *http, QJS &settings);
 };
 
