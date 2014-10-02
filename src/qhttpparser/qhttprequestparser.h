@@ -28,6 +28,7 @@ private:
     QByteArray m_data;
     bool isHeaderRecived;
     bool isBodyRecived;
+    bool isFinished;
 
 signals:
     void headerRecieved();
@@ -38,6 +39,9 @@ signals:
     void finished();
 
 public slots:
+
+private slots:
+    void onParserFinished();
 
 };
 

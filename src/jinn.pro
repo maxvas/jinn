@@ -8,4 +8,5 @@ SUBDIRS += \
     qhttpparser/qhttpparser.pro \
     jinn_api \
     jinn_core \
-    modules
+    modules \
+    jinn_client
