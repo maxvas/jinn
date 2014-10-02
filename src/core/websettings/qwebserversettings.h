@@ -5,9 +5,9 @@
 #include <QJSMapping>
 #include <QDir>
 #include "qwebproject.h"
-#include "../jinn_api_global.h"
+#include "../core_global.h"
 
-class JINN_APISHARED_EXPORT QWebServerSettings : public QJS
+class JINN_CORESHARED_EXPORT QWebServerSettings : public QJS
 {
     Q_OBJECT
 public:

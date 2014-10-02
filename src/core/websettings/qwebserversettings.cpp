@@ -3,6 +3,7 @@
 #include <QFile>
 #include <qlogging.h>
 #include "../qwebglobaldata.h"
+#include <QDebug>
 
 void QWebServerSettings::addProject(QString prjFileName)
 {
@@ -25,6 +26,7 @@ void QWebServerSettings::readProjectSettings(QString fileName)
     if (!prjFile.open(QFile::ReadOnly))
     {
         //TODO: вывод ошибки
+        qDebug()<<"Can't open file "<<prjFileName;
         return;
     }
     QString text = prjFile.readAll();
@@ -32,6 +34,8 @@ void QWebServerSettings::readProjectSettings(QString fileName)
     if (project.hasParsingError())
     {
         //TODO: вывод ошибки
+        qDebug()<<"Can't parse project settings "<<prjFileName;
+        qDebug()<<"Parsing error: "<<project.parsingErrorString();
         return;
     }
     QFileInfo prjFileInfo(prjFileName);

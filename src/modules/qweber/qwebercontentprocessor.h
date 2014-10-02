@@ -8,7 +8,7 @@
 class QWeberContentProcessor : public RequestProcessor
 {
 public:
-    bool checkUrl(QString url, QJS &settings);
+    bool checkUrl(QString url, QJS &settings, QWebProject &project);
     void headerRecieved(QHttpManipulator *http, QJS &settings);
 };
 

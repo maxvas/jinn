@@ -1,7 +1,7 @@
-#include "testprocessor.h"
+#include "managerprocessor.h"
 #include <QTime>
 
-bool TestProcessor::checkUrl(QString url, QJS &settings, QWebProject &project)
+bool ManagerProcessor::checkUrl(QString url, QWebProject *settings, QWebProject &project)
 {
     (void)settings;
     (void)project;
@@ -11,7 +11,7 @@ bool TestProcessor::checkUrl(QString url, QJS &settings, QWebProject &project)
     return urls.contains(url);
 }
 
-void TestProcessor::headerRecieved(QHttpManipulator *http, QJS &settings)
+void ManagerProcessor::headerRecieved(QHttpManipulator *http, QJS &settings)
 {
     (void)settings;
     if (http->request()->path()=="/")
@@ -20,7 +20,7 @@ void TestProcessor::headerRecieved(QHttpManipulator *http, QJS &settings)
         http->echo(QTime::currentTime().toString());
 }
 
-void TestProcessor::bodyRecieved(QHttpManipulator *http, QJS &settings)
+void ManagerProcessor::bodyRecieved(QHttpManipulator *http, QJS &settings)
 {
     (void)settings;
     QByteArray data =http->request()->bodyData();

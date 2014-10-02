@@ -13,7 +13,6 @@ int main(int argc, char *argv[])
 {
     QCoreApplication a(argc,argv);
     int port =3444; //default port
-    help();
     QStringList argList=a.arguments();
     argList.removeFirst();
     if(argList.size()>0){

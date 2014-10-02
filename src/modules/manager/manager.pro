@@ -1,14 +1,13 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2014-08-11T15:59:24
+# Project created by QtCreator 2014-08-11T00:03:41
 #
 #-------------------------------------------------
 
-QT -= gui
-QT += network
+QT       -= gui
 
 DESTDIR = $$PWD"/../bin"
-TARGET = proxy
+TARGET = manager
 TEMPLATE = lib
 
 DEFINES += LIBRARY
@@ -16,13 +15,13 @@ DEFINES += LIBRARY
 include(../dependencies.pri)
 
 SOURCES += \
-    proxymodule.cpp \
-    proxyprocessor.cpp
+    managermodule.cpp \
+    managerprocessor.cpp
 
 HEADERS +=\
-#    global.h \
-    proxymodule.h \
-    proxyprocessor.h
+#    global.h
+    managermodule.h \
+    managerprocessor.h
 
 unix {
     target.path = /usr/lib

@@ -8,7 +8,7 @@ QT       += core network
 
 QT       -= gui
 DESTDIR = ../../bin
-TARGET = jinn_client
+TARGET = jinn
 
 TEMPLATE = app
 

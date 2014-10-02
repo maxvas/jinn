@@ -3,5 +3,6 @@ TEMPLATE = subdirs
 SUBDIRS += \
         test \
         proxy \
-	static \
-        qweber
+		static \
+        qweber \
+        manager

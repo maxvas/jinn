@@ -10,18 +10,24 @@
             "port": 8888
         }
     ],
-    "proxy": [
-        {
-            "url":"/mail",
-            "remoteHost": "mail.ru",
-            "remotePort": 80,
-            "remotePath": "/"
+    "modules":{
+        "proxy": [
+            {
+                "url":"/mail",
+                "remoteHost": "mail.ru",
+                "remotePort": 80,
+                "remotePath": "/"
+            }
+        ],
+        "static":{
+            "folders":[
+                "www/folder1",
+                "www/subdir/folder2"
+            ]
+        },
+        "qblaber":{
+            "prefix": "bla_"
         }
-    ],
-    "static":{
-        "folders":[
-            "www/folder1",
-            "www/subdir/folder2"
-        ]
     }
+    
 }
