@@ -81,18 +81,25 @@ bool QWebResourseProvider::findProject(QString host, qint16 port)
 
 bool QWebResourseProvider::findContentProcessor(QString url)
 {
-    foreach (JinnModule *m, modules)
+    QJS &prjModules = project->get("modules");
+    for (QJS::iterator it = prjModules.begin(); it!=prjModules.end(); ++it)
     {
-        QString name = m->name();
+        QJS &modulePrjEntry = *it;
+        if (modules.contains(modulePrjEntry.key()))
+        {
+            qDebug()<<project->name()+" references to unloaded module: "+modulePrjEntry.key();
+        }
+        JinnModule *m = modules[modulePrjEntry.key()];
         foreach (RequestProcessor *cp, m->contentProcessors) {
-            QJS &cpSettings = this->project->get(cp->settingsName());
-            if (cp->checkUrl(url, this->project)){
+            if (cp->checkUrl(url, modulePrjEntry, *project)){
                 this->cp = cp;
-                this->cpSettings = &cpSettings;
+                this->cpSettings = &modulePrjEntry;
                 return true;
             }
         }
     }
+
+
     return false;
 }
 

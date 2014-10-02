@@ -11,9 +11,9 @@ QString ProxyProcessor::settingsName()
     return "proxy";
 }
 
-bool ProxyProcessor::checkUrl(QString url, QWebProject *project)
+bool ProxyProcessor::checkUrl(QString url, QJS &settings, QWebProject &project)
 {
-    QJS &settings = (*project)["proxy"];
+    (void)project;
     if (settings.size()==0)
         return false;
     for (QJS::iterator i=settings.begin(); i!=settings.end(); ++i)
@@ -35,6 +35,7 @@ bool ProxyProcessor::checkUrl(QString url, QWebProject *project)
 
 void ProxyProcessor::headerRecieved(QHttpManipulator *http, QJS &settings)
 {
+    (void)settings;
     http->echo("Здесь будет прокси");
     //http->echo(urlPath);
 }

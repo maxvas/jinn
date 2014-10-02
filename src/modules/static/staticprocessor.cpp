@@ -32,16 +32,17 @@ bool StaticProcessor::init(QWebGlobalData *global)
     return true;
 }
 
-bool StaticProcessor::checkUrl(QString url, QWebProject *project)
+bool StaticProcessor::checkUrl(QString url, QJS &settings, QWebProject &project)
 {
+    (void)project;
     if (url.indexOf("?")>0)
         url = url.section("?", 0, 0);
     if (!url.startsWith("/"))
         url = "/" + url;
-    for(int i=0;i<(*project)[this->settingsName()]["folders"].size();i++){
+    for(int i=0;i<settings["folders"].size();i++){
         foreach (QString suf, suffixes)
         {
-            QString path=project->dir().absolutePath()+"/"+(*project)[settingsName()]["folders"][i].toString()+url+suf;
+            QString path=project.dir().absolutePath()+"/"+settings["folders"][i].toString()+url+suf;
 
             if(QFile::exists(path))
             {
@@ -65,6 +66,7 @@ QString StaticProcessor::settingsName()
 
 void StaticProcessor::headerRecieved(QHttpManipulator *http, QJS &settings)
 {
+    (void)settings;
     sendFile(http);
 }
 

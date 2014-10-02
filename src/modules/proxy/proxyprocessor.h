@@ -11,7 +11,7 @@ class ProxyProcessor : public RequestProcessor
 public:
     explicit ProxyProcessor();
     QString settingsName();
-    bool checkUrl(QString url, QWebProject *project);
+    bool checkUrl(QString url, QJS &settings, QWebProject &project);
     void headerRecieved(QHttpManipulator *http, QJS &settings);
 //    void bodyDataBlockRecieved(QByteArray data, QJS &settings);
 //    void bodyRecieved(QHttpManipulator *http, QJS &settings);

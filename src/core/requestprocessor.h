@@ -21,8 +21,9 @@ public:
         (void)global;
         return true;
     }
-    virtual bool checkUrl(QString url, QWebProject *project){
+    virtual bool checkUrl(QString url, QJS &settings, QWebProject &project){
         (void)url;
+        (void)settings;
         (void)project;
         return false;
     }

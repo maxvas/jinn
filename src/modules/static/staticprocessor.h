@@ -10,7 +10,7 @@ class StaticProcessor : public RequestProcessor
 public:
     StaticProcessor();
     bool init(QWebGlobalData *global);
-    bool checkUrl(QString url, QWebProject *project);
+    bool checkUrl(QString url, QJS &settings, QWebProject &project);
     QString settingsName();
     void headerRecieved(QHttpManipulator *http, QJS &settings);
 private:
