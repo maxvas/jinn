@@ -22,8 +22,3 @@ HEADERS +=\
 #    global.h
     testmodule.h \
     testprocessor.h
-
-unix {
-    target.path = /usr/lib
-    INSTALLS += target
-}

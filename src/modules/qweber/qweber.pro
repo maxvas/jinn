@@ -19,8 +19,3 @@ SOURCES += qweber.cpp \
 HEADERS += qweber.h\
         global.h \
     qwebercontentprocessor.h
-
-unix {
-    target.path = /usr/lib
-    INSTALLS += target
-}

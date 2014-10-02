@@ -29,3 +29,16 @@ HEADERS += \
     qtcpportlistener.h \
     qwebserver.h \
     jinnservice.h
+
+unix {
+    target.path = /usr/bin
+    configs.path =  /etc/jinn
+    configs.files = $${PWD}/../../distr/linux/config/*
+} else {
+    target.path = $$PWD/../install/lib
+}
+INSTALLS += target configs
+QMAKE_CLEAN += -r $${DESTDIR}
+unix {
+    QMAKE_CLEAN += /usr/bin/*$${TARGET}*
+}

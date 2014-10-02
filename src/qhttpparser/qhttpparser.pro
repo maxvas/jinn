@@ -30,7 +30,6 @@ HEADERS += \
     QHttpRequestParser \
     qhttpresponseparser.h
 
-
 unix {
     target.path = /usr/lib
     INSTALLS += target

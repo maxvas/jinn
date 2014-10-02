@@ -72,6 +72,7 @@ INSTALLS += target includes jinn_feature
 QMAKE_CLEAN += jinn.prf
 QMAKE_CLEAN += -r $${DESTDIR}
 unix {
+    QMAKE_CLEAN += /usr/lib/*$${TARGET}*
     QMAKE_CLEAN += -r /usr/include/jinn
 } else {
     QMAKE_CLEAN += -r $$PWD/../install/lib

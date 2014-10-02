@@ -22,8 +22,3 @@ HEADERS +=\
 #    global.h
     managermodule.h \
     managerprocessor.h
-
-unix {
-    target.path = /usr/lib
-    INSTALLS += target
-}
