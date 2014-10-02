@@ -1,5 +1,5 @@
 INCLUDEPATH += "../../core"
-LIBS += -L"../../../bin" -lcore
+LIBS += -L"../../../bin" -ljinn
 
 INCLUDEPATH += "../../qhttpparser"
 LIBS += -L"../../../bin" -lqhttpparser

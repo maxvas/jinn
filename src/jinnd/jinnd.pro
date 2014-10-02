@@ -11,7 +11,7 @@ INCLUDEPATH += "../qhttpparser"
 LIBS += -L"../../bin" -lqhttpparser
 
 INCLUDEPATH += "../core"
-LIBS += -L"../../bin" -lcore
+LIBS += -L"../../bin" -ljinn
 
 include(../qtservice/src/qtservice.pri)
 
