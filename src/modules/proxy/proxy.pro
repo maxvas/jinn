@@ -13,14 +13,7 @@ TEMPLATE = lib
 
 DEFINES += LIBRARY
 
-INCLUDEPATH += "../../jinn_api"
-LIBS += -L"../../../bin" -ljinn_api
-
-INCLUDEPATH += "../../qhttpparser"
-LIBS += -L"../../../bin" -lqhttpparser
-
-INCLUDEPATH += "../../../../qjs/src"
-LIBS += -L"../../../../qjs/bin" -lqjs
+include(../dependencies.pri)
 
 SOURCES += \
     proxymodule.cpp \

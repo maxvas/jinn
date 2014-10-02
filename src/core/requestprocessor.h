@@ -1,7 +1,7 @@
 #ifndef REQUESTPROCESSOR_H
 #define REQUESTPROCESSOR_H
 
-#include "jinn_api_global.h"
+#include "core_global.h"
 #include <qhttpmanipulator.h>
 #include <QByteArray>
 #include <QJS>

@@ -8,9 +8,9 @@
 #include "qwebmodule.h"
 #include "qwebmodulelink.h"
 #include "qwebhost.h"
-#include "../jinn_api_global.h"
+#include "../core_global.h"
 
-class JINN_APISHARED_EXPORT QWebProject : public QJS
+class JINN_CORESHARED_EXPORT QWebProject : public QJS
 {
     Q_OBJECT
 public:

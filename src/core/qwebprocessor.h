@@ -6,9 +6,9 @@
 #include <QTcpSocket>
 #include <QHttpRequestParser>
 #include "qwebresourseprovider.h"
-#include "jinn_api_global.h"
+#include "core_global.h"
 
-class JINN_APISHARED_EXPORT QWebProcessor : public QObject
+class JINN_CORESHARED_EXPORT QWebProcessor : public QObject
 {
     Q_OBJECT
 public:

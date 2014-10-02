@@ -2,9 +2,9 @@
 #define QWEBHOST_H
 
 #include <QJSMapping>
-#include "../jinn_api_global.h"
+#include "../core_global.h"
 
-class JINN_APISHARED_EXPORT QWebHost : public QJSMapping
+class JINN_CORESHARED_EXPORT QWebHost : public QJSMapping
 {
     Q_OBJECT
 public:

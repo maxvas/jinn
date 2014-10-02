@@ -3,6 +3,7 @@ QT       -= gui
 
 TEMPLATE = app
 DESTDIR = ../../bin
+TARGET = jinnd
 
 INCLUDEPATH += "../../../qjs/src"
 LIBS += -L"../../../qjs/bin" -lqjs
@@ -10,8 +11,8 @@ LIBS += -L"../../../qjs/bin" -lqjs
 INCLUDEPATH += "../qhttpparser"
 LIBS += -L"../../bin" -lqhttpparser
 
-INCLUDEPATH += "../jinn_api"
-LIBS += -L"../../bin" -ljinn_api
+INCLUDEPATH += "../core"
+LIBS += -L"../../bin" -lcore
 
 include(../qtservice/src/qtservice.pri)
 

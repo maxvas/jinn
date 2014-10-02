@@ -9,10 +9,10 @@ QT       += network
 
 DESTDIR = ../../bin
 
-TARGET = jinn_api
+TARGET = core
 TEMPLATE = lib
 
-DEFINES += JINN_API_LIBRARY
+DEFINES += JINN_CORE_LIBRARY
 
 INCLUDEPATH += "../../../qjs/src"
 LIBS += -L"../../../qjs/bin" -lqjs
@@ -32,7 +32,6 @@ SOURCES += jinnmodule.cpp \
     qwebresourseprovider.cpp
 
 HEADERS += jinnmodule.h\
-        jinn_api_global.h \
     websettings/qwebcontentpath.h \
     websettings/QWebHost \
     websettings/qwebhost.h \
@@ -49,7 +48,8 @@ HEADERS += jinnmodule.h\
     qwebprocessor.h \
     qwebresourseprovider.h \
     QWebGlobalData \
-    requestprocessor.h
+    requestprocessor.h \
+    core_global.h
 
 unix {
     target.path = /usr/lib

@@ -5,9 +5,9 @@
 #include <QJSSharedNode>
 #include <QDir>
 #include "websettings/qwebserversettings.h"
-#include "jinn_api_global.h"
+#include "core_global.h"
 
-class JINN_APISHARED_EXPORT QWebGlobalData : public QJSSharedNode
+class JINN_CORESHARED_EXPORT QWebGlobalData : public QJSSharedNode
 {
     Q_OBJECT
 public:
