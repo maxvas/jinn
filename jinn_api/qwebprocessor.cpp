@@ -77,8 +77,11 @@ void QWebProcessor::socketWrite(QByteArray data)
 
 void QWebProcessor::onParserFinished()
 {
-    qDebug()<<"QWebProcessor->onParserFinished()"<<socket->socketDescriptor();
-    disconnectNetworkConnection();
+    if (socket)
+    {
+        qDebug()<<"QWebProcessor->onParserFinished()"<<socket->socketDescriptor();
+        disconnectNetworkConnection();
+    }
 }
 
 void QWebProcessor::disconnectNetworkConnection()
