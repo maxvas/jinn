@@ -5,8 +5,7 @@ TEMPLATE = app
 DESTDIR = ../../bin
 TARGET = jinnd
 
-INCLUDEPATH += "../../../qjs/src"
-LIBS += -L"../../../qjs/bin" -lqjs
+CONFIG += qjs
 
 INCLUDEPATH += "../qhttpparser"
 LIBS += -L"../../bin" -lqhttpparser

@@ -25,9 +25,7 @@
                 "www/subdir/folder2"
             ]
         },
-        "qblaber":{
-            "prefix": "bla_"
-        }
+        "test":{}
     }
     
 }
