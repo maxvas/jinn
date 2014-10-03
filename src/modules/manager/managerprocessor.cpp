@@ -18,17 +18,14 @@ void ManagerProcessor::bodyRecieved(QHttpManipulator *http, QJS &settings)
     QByteArray data =http->request()->bodyData();
     CommandExecutor cmdExecutor(serverSettings);
     Command cmd(&cmdExecutor);
-    if(cmd.parse(data))
-        if(cmd.exec()){
-            http->echo(cmd.response());
-        }
-    if(cmd.hasError())
-        http->echo(cmd.error());
+    cmd.parse(data);
+    cmd.exec();
+    http->echo(cmd.response());
 
 }
 
 bool ManagerProcessor::init(QWebGlobalData *global)
 {
-    serverSettings = global->settings();
+    serverSettings = &global->settings();
     return true;
 }

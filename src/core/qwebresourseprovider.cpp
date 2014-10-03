@@ -14,7 +14,7 @@ QWebResourseProvider::QWebResourseProvider(QObject *parent, QWebGlobalData *glob
     QJS modules = global->settings().modules();
     QDir configDir = global->settings().dir();
     QDir dir(configDir);
-    QString modulesDir = dir.absoluteFilePath(global->settings().modulesFolder());
+    QString modulesDir = dir.absoluteFilePath(global->settings().modulesDir());
     if(!dir.cd(modulesDir)){
         qDebug()<<"директория с модулями не найдена";
         return;

@@ -25,7 +25,7 @@ int main(int argc, char *argv[])
         }
     }
     if(argList.size()>0){
-        JinnClient *client = new JinnClient();
+        JinnClient *client = new JinnClient(&a);
         QByteArray data;
         foreach (QString arg, argList) {
             data.append(arg);

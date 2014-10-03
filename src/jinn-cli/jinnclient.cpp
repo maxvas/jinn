@@ -1,8 +1,8 @@
 #include "jinnclient.h"
 #include <iostream>
 
-JinnClient::JinnClient(QObject *parent) :
-    QObject(parent), mgr(new QNetworkAccessManager(this))
+JinnClient::JinnClient(QCoreApplication *app, QObject *parent) :
+    QObject(parent), mgr(new QNetworkAccessManager(this)),app(app)
 {
     connect(mgr,SIGNAL(finished(QNetworkReply*)),this,SLOT(response(QNetworkReply*)));
 }
@@ -29,4 +29,5 @@ void JinnClient::response(QNetworkReply *reply)
     using namespace std;
     cout<<QString(data).toStdString()<<endl;
     cout.flush();
+    app->exit();
 }

@@ -1,3 +1,5 @@
+DESTDIR = $$PWD"/../../bin/modules"
+
 INCLUDEPATH += "../../core"
 LIBS += -L"../../../bin" -ljinn
 

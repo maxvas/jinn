@@ -9,19 +9,19 @@ class Command
 {
 public:
     Command(CommandExecutor *cmdExecutor);
-    bool parse(QByteArray &data);
-    bool exec();
+    void parse(QByteArray &data);
+    void exec();
     bool hasError();
-    QString error();
     QByteArray response();
 
 private:
     bool m_hasError;
     QByteArray m_response;
-    QString m_errorString;
     QString m_branch;
     QString m_oper;
-    QStringList options;
+    QStringList m_options;
+    QString m_opt; //пока
+    QString m_arg;
 
     CommandExecutor* m_cmdExecutor;
 

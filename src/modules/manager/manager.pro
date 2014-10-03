@@ -6,7 +6,6 @@
 
 QT       -= gui
 
-DESTDIR = $$PWD"/../bin"
 TARGET = manager
 TEMPLATE = lib
 

@@ -12,7 +12,7 @@ public:
     void bodyRecieved(QHttpManipulator *http, QJS &settings);
     bool init(QWebGlobalData *global);
 private:
-    QWebServerSettings serverSettings;
+    QWebServerSettings *serverSettings;
 };
 
 #endif // TESTCONTENTPROCESSOR_H

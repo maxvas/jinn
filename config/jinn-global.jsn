@@ -1,11 +1,11 @@
 {
 	"prjFiles": [
-        "../tests/projects/project1/project1.prj",
-        "../tests/projects/manager/manager.prj"
+        "../projects/project1/project1.prj",
+        "../projects/manager/manager.prj"
 	],
 	"connectionsPerWorker": 1,
 	"workersCount": 1,
-	"modulesFolder":"../src/modules/bin/",
+	"modulesDir":"../bin/modules/",
 	"modules": [
 		"test",
 		"proxy",
