@@ -37,7 +37,6 @@ QWebResourseProvider::QWebResourseProvider(QObject *parent, QWebGlobalData *glob
     foreach (QString fileName, moduleList) {
         for (QJS::iterator i=modules.begin(); i!=modules.end(); ++i){
             QString moduleName = (*i).toString();
-            QString bla="lib"+moduleName+libExtansion;
             if(fileName.contains(moduleName+libExtansion)){
                 QPluginLoader loader(dir.absoluteFilePath(fileName));
                 if (!loader.load())

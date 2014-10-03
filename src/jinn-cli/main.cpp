@@ -29,6 +29,7 @@ int main(int argc, char *argv[])
         QByteArray data;
         foreach (QString arg, argList) {
             data.append(arg);
+            data.append("\n");
         }
         client->requestPOST(port,data);
     }

@@ -16,12 +16,16 @@ include(../dependencies.pri)
 
 SOURCES += \
     managermodule.cpp \
-    managerprocessor.cpp
+    managerprocessor.cpp \
+    command.cpp \
+    commandexecutor.cpp
 
 HEADERS +=\
 #    global.h
     managermodule.h \
-    managerprocessor.h
+    managerprocessor.h \
+    command.h \
+    commandexecutor.h
 
 unix {
     target.path = /usr/lib
