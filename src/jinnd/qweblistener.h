@@ -10,6 +10,10 @@ class QWebListener : public QObject
     Q_OBJECT
 public:
     explicit QWebListener(QObject *parent, QWebGlobalData *global);
+    ~QWebListener();
+
+private:
+    QList<QTcpPortListener* > listeners;
 
 signals:
     void newConnection(qint16 port, qintptr socketDescriptor);

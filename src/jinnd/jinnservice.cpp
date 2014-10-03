@@ -38,7 +38,8 @@ void JinnService::start()
 
 void JinnService::stop()
 {
-    server->deleteLater();
+    delete server;
+    application()->exit();
 }
 
 void JinnService::pause()

@@ -23,8 +23,3 @@ HEADERS +=\
 #    global.h \
     proxymodule.h \
     proxyprocessor.h
-
-unix {
-    target.path = /usr/lib
-    INSTALLS += target
-}

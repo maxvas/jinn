@@ -21,7 +21,18 @@ void QWebServer::start()
         QHttpWorkerThread *workerThread = new QHttpWorkerThread(listenerGlobalData->initData());
         connect(workerThread, SIGNAL(started()), this, SLOT(connectWorkerSignals()));
         workerThread->start();
+        workers.append(workerThread);
     }
+}
+
+void QWebServer::stop()
+{
+    foreach (QHttpWorkerThread *workerThread, workers) {
+        workerThread->terminate();
+        delete workerThread;
+    }
+    delete listener;
+    listener = 0;
 }
 
 void QWebServer::connectWorkerSignals()

@@ -23,6 +23,15 @@ SOURCES += \
 HEADERS +=\
 #    global.h
     managermodule.h \
+<<<<<<< HEAD
     managerprocessor.h \
     command.h \
     commandexecutor.h
+
+unix {
+    target.path = /usr/lib
+    INSTALLS += target
+}
+=======
+    managerprocessor.h
+>>>>>>> dcf7c4e1e887741d43eb1e53d0e946506cf5408a

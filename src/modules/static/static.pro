@@ -21,8 +21,3 @@ SOURCES += \
 HEADERS +=\
     staticmodule.h \
     staticprocessor.h
-
-unix {
-    target.path = /usr/lib
-    INSTALLS += target
-}

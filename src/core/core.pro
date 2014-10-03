@@ -9,13 +9,12 @@ QT       += network
 
 DESTDIR = ../../bin
 
-TARGET = core
+TARGET = jinn
 TEMPLATE = lib
 
 DEFINES += JINN_CORE_LIBRARY
 
-INCLUDEPATH += "../../../qjs/src"
-LIBS += -L"../../../qjs/bin" -lqjs
+CONFIG += qjs
 
 INCLUDEPATH += "../qhttpparser"
 LIBS += -L"../../bin" -lqhttpparser
@@ -53,5 +52,30 @@ HEADERS += jinnmodule.h\
 
 unix {
     target.path = /usr/lib
-    INSTALLS += target
+    includes.path =  /usr/include/jinn
+    includes.files = $$HEADERS
+} else {
+    target.path = $$PWD/../install/lib
+    includes.path =  $$PWD/../install/include
+    includes.files = $$HEADERS
 }
+features_dir = $$(QTDIR)/mkspecs/features
+jinn_feature.path = $$(QTDIR)/mkspecs/features
+jinn_feature.files = jinn.prf
+unix{
+        jinn_feature.extra += echo "INCLUDEPATH += /usr/include/jinn" > jinn.prf && echo "LIBS += -L/usr/lib/jinn -ljinn" >> jinn.prf
+}
+win32{
+        jinn_feature.extra += echo "INCLUDEPATH += \"$$PWD/../install/lib\"" > jinn.prf & echo "LIBS += -L\"$$PWD/../install/lib\" -ljinn" >> jinn.prf
+}
+INSTALLS += target includes jinn_feature
+QMAKE_CLEAN += jinn.prf
+QMAKE_CLEAN += -r $${DESTDIR}
+unix {
+    QMAKE_CLEAN += /usr/lib/*$${TARGET}*
+    QMAKE_CLEAN += -r /usr/include/jinn
+} else {
+    QMAKE_CLEAN += -r $$PWD/../install/lib
+    QMAKE_CLEAN += -r $$PWD/../install/include
+}
+QMAKE_CLEAN += $$(QTDIR)/mkspecs/features/jinn.prf

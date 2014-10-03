@@ -5,14 +5,13 @@ TEMPLATE = app
 DESTDIR = ../../bin
 TARGET = jinnd
 
-INCLUDEPATH += "../../../qjs/src"
-LIBS += -L"../../../qjs/bin" -lqjs
+CONFIG += qjs
 
 INCLUDEPATH += "../qhttpparser"
 LIBS += -L"../../bin" -lqhttpparser
 
 INCLUDEPATH += "../core"
-LIBS += -L"../../bin" -lcore
+LIBS += -L"../../bin" -ljinn
 
 include(../qtservice/src/qtservice.pri)
 
@@ -30,3 +29,16 @@ HEADERS += \
     qtcpportlistener.h \
     qwebserver.h \
     jinnservice.h
+
+unix {
+    target.path = /usr/bin
+    configs.path =  /etc/jinn
+    configs.files = $${PWD}/../../distr/linux/config/*
+} else {
+    target.path = $$PWD/../install/lib
+}
+INSTALLS += target configs
+QMAKE_CLEAN += -r $${DESTDIR}
+unix {
+    QMAKE_CLEAN += /usr/bin/*$${TARGET}*
+}
