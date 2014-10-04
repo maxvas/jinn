@@ -134,7 +134,35 @@ bool CommandExecutor::turnModuleOn(QString name)
         removeModule(name);
         return false;
     }
-    m_serverSettings->addModule(name);
+    if(m_serverSettings->moduleIndex(name)<0)
+        m_serverSettings->addModule(name);
+    return true;
+}
+
+bool CommandExecutor::turnModuleOff(QString name)
+{
+    QDir dir(m_moduleFolder);
+    QStringList filters;
+    #ifdef _WIN32
+    filters << "*.dll";
+    #endif
+    //#endif
+    #ifdef __unix
+    filters << "*"+name+".so";
+    #endif
+    QStringList moduleList=dir.entryList(filters,QDir::Files);
+    if(moduleList.empty()){
+        m_log.append("\nmodule "+name+" is not exist");
+        return false;
+    }
+    QString fileName = moduleList.at(0);
+    if (!checkModule(dir.absoluteFilePath(fileName)))
+    {
+        m_log.append("\nmodule file"+fileName+" is invalid");
+        removeModule(name);
+        return false;
+    }
+    m_serverSettings->removeModule(name);
     return true;
 }
 

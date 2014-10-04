@@ -37,7 +37,7 @@ void QWebGlobalData::readSettings()
     this->enableSignals();
 }
 
-void QWebGlobalData::saveSettings(QByteArray,QString,QByteArray,QByteArray)
+void QWebGlobalData::saveSettings()
 {
     QFile file(settingsFileName());
     if (!file.open(QFile::ReadWrite))
@@ -45,11 +45,14 @@ void QWebGlobalData::saveSettings(QByteArray,QString,QByteArray,QByteArray)
         qDebug()<<"Error on write settings: Can't open file "<<settingsFileName();
         return;
     }
-    file.write(this->get("settings").toJson().toUtf8());
+    QJS settings = this->get("settings");
+    settings.remove("projects");
+    file.write(settings.toJson().toUtf8());
     file.close();
 }
 
 void QWebGlobalData::doneConnects()
 {
-    connect(this, SIGNAL(dataChanged(QByteArray,QString,QByteArray,QByteArray)), this, SLOT(saveSettings(QByteArray,QString,QByteArray,QByteArray))); //Автосохранение будет происходить только при локальном изменении данных
+//    connect(this, SIGNAL(dataChanged(QByteArray,QString,QByteArray,QByteArray)), this, SLOT(saveSettings(QByteArray,QString,QByteArray,QByteArray))); //Автосохранение будет происходить только при локальном изменении данных
+    connect(this, SIGNAL(changed()), this, SLOT(saveSettings()));
 }

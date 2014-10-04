@@ -1,15 +1,16 @@
 {
-	"prjFiles": [
+    "connectionsPerWorker": 1,
+    "modules": [
+        "proxy",
+        "static",
+        "manager"
+    ],
+    "modulesDir": "../bin/modules/",
+    "prjFiles": [
         "../projects/project1/project1.prj",
         "../projects/manager/manager.prj"
-	],
-	"connectionsPerWorker": 1,
-	"workersCount": 1,
-	"modulesDir":"../bin/modules/",
-	"modules": [
-		"test",
-		"proxy",
-		"static",
-		"manager"
-	]
+    ],
+    "workersCount": 1
+}rkersCount": 1
+}workersCount": 1
 }

@@ -24,7 +24,7 @@ private:
 signals:
 
 public slots:
-    void saveSettings(QByteArray, QString, QByteArray, QByteArray);
+    void saveSettings();
 
 };
 

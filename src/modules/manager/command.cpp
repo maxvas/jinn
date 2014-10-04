@@ -77,6 +77,10 @@ void Command::exec()
             QString name=m_arg;
             m_hasError = !m_cmdExecutor->turnModuleOn(name);
         }
+        if(m_oper=="off"){
+            QString name=m_arg;
+            m_hasError = !m_cmdExecutor->turnModuleOff(name);
+        }
     }
     if(m_branch == "config"){
 

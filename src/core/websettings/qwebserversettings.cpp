@@ -59,6 +59,28 @@ QDir QWebServerSettings::dir()
     return QDir(dirName);
 }
 
+int QWebServerSettings::moduleIndex(QString moduleName)
+{
+    QJS mods = modules();
+    for(int i=0;i<mods.size();i++){
+        if(moduleName == mods[i].toString())
+            return i;
+    }
+    return -1;
+}
+
 void QWebServerSettings::removeModule(QString moduleName)
 {
+    QJS for_test = modules();
+    int index = moduleIndex(moduleName);
+    if(index>-1){
+        modules().remove(index);
+    }
+    for_test = modules();
+    qDebug()<<for_test.toString();
+}
+
+void QWebServerSettings::bla(QByteArray a, QString s, QByteArray d, QByteArray f)
+{
+    qDebug()<<"bla"<<s;
 }
