@@ -1,7 +1,7 @@
 {
 	"prjFiles": [
-        "../projects/project1/project1.prj",
-        "../projects/manager/manager.prj"
+        "/root/jinn/projects/project1/project1.prj",
+        "/root/jinn/projects/manager/manager.prj"
 	],
 	"connectionsPerWorker": 1,
 	"workersCount": 1,
