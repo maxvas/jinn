@@ -1,13 +1,7 @@
-#-------------------------------------------------
-#
-# Project created by QtCreator 2014-08-10T21:16:25
-#
-#-------------------------------------------------
+include($$top_srcdir/jinnconfig.pri)
 
 QT       -= gui
 QT       += network
-
-DESTDIR = ../../bin
 
 TARGET = jinn
 TEMPLATE = lib
@@ -17,7 +11,7 @@ DEFINES += JINN_CORE_LIBRARY
 CONFIG += qjs
 
 INCLUDEPATH += "../qhttpparser"
-LIBS += -L"../../bin" -lqhttpparser
+LIBS += -L$$DESTDIR -lqhttpparser
 
 SOURCES += jinnmodule.cpp \
     websettings/qwebcontentpath.cpp \
@@ -50,32 +44,32 @@ HEADERS += jinnmodule.h\
     requestprocessor.h \
     core_global.h
 
-unix {
-    target.path = /usr/lib
-    includes.path =  /usr/include/jinn
-    includes.files = $$HEADERS
-} else {
-    target.path = $$PWD/../install/lib
-    includes.path =  $$PWD/../install/include
-    includes.files = $$HEADERS
-}
-features_dir = $$(QTDIR)/mkspecs/features
-jinn_feature.path = $$(QTDIR)/mkspecs/features
-jinn_feature.files = jinn.prf
+#На шаге INSTALL мы копируем собранную библиотеку туда, где должны храниться библиотеки
+target.path = $$PATH_LIB
+#Копируем заголовочные файлы
+includes.path =  $$PATH_INCLUDE/jinn
+includes.files = $$HEADERS
+#Создаем фичу QT для написания модулей Jinn
+prffile = $${QTDIR}/mkspecs/features/jinnmodule.prf
 unix{
-        jinn_feature.extra += echo "INCLUDEPATH += /usr/include/jinn" > jinn.prf && echo "LIBS += -L/usr/lib/jinn -ljinn" >> jinn.prf
+    feature.path = $${OUT_PWD}
+    feature.files = $$prffile
+    feature.extra += echo "CONFIG += qjs qhttpparser" > $$prffile &&\
+        echo "INCLUDEPATH += $$PATH_INCLUDE/jinn" >> $$prffile $$\
+        echo "LIBS += -L$$PATH_LIB -ljinn" >> $$prffile &&\
+        echo "target.path = /usr/share/jinn/modules" >> $$prffile $$\
+        echo "INSTALLS += target" >> $$prffile
 }
 win32{
-        jinn_feature.extra += echo "INCLUDEPATH += \"$$PWD/../install/lib\"" > jinn.prf & echo "LIBS += -L\"$$PWD/../install/lib\" -ljinn" >> jinn.prf
+    feature.path = $${OUT_PWD}
+    feature.files = $$prffile
+    feature.extra += echo "CONFIG += qjs qhttpparser" > $$prffile\
+        echo "INCLUDEPATH += $$PATH_INCLUDE/jinn" >> $$prffile\
+        echo "LIBS += -L$$PATH_LIB -ljinn" >> $$prffile
 }
-INSTALLS += target includes jinn_feature
-QMAKE_CLEAN += jinn.prf
-QMAKE_CLEAN += -r $${DESTDIR}
-unix {
-    QMAKE_CLEAN += /usr/lib/*$${TARGET}*
-    QMAKE_CLEAN += -r /usr/include/jinn
-} else {
-    QMAKE_CLEAN += -r $$PWD/../install/lib
-    QMAKE_CLEAN += -r $$PWD/../install/include
-}
-QMAKE_CLEAN += $$(QTDIR)/mkspecs/features/jinn.prf
+
+INSTALLS += target includes feature
+#Шаг clean
+QMAKE_CLEAN += $$PATH_LIB/*$${TARGET}*
+QMAKE_CLEAN += -r $$PATH_INCLUDE/jinn
+QMAKE_CLEAN += $$prffile

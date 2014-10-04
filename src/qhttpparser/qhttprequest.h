@@ -1,7 +1,7 @@
 #ifndef QHTTPREQUEST_H
 #define QHTTPREQUEST_H
 
-#include <QObject>
+//#include <QObject>
 #include <QHash>
 #include "qhttprequestparser.h"
 #include "qhttpheaderslist.h"

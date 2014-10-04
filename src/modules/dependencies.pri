@@ -1,17 +1,17 @@
-DESTDIR = $$PWD"/../../bin/modules"
+DESTDIR = $$top_srcdir/../bin/modules
 
 INCLUDEPATH += "../../core"
-LIBS += -L"../../../bin" -ljinn
+LIBS += -L$$top_srcdir/../bin -ljinn
 
 INCLUDEPATH += "../../qhttpparser"
-LIBS += -L"../../../bin" -lqhttpparser
+LIBS += -L$$top_srcdir/../bin -lqhttpparser
 
 CONFIG += qjs
 
 unix {
     target.path = /usr/share/jinn/modules
 } else {
-    target.path = $$PWD/../../install/modules
+    target.path = $$PWD/../../package/modules
 }
 INSTALLS += target
 QMAKE_CLEAN += -r $${DESTDIR}

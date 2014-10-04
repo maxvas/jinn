@@ -1,8 +1,4 @@
-#-------------------------------------------------
-#
-# Project created by QtCreator 2014-08-11T15:59:24
-#
-#-------------------------------------------------
+include(../dependencies.pri)
 
 QT -= gui
 QT += network
@@ -11,8 +7,6 @@ TARGET = proxy
 TEMPLATE = lib
 
 DEFINES += LIBRARY
-
-include(../dependencies.pri)
 
 SOURCES += \
     proxymodule.cpp \
