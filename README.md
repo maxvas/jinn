@@ -12,8 +12,8 @@ Jinn
 
 **Установка на Unix из исходников:**
 
-    git clone https://github.com/maxvas/jinn
-    cd jinn
+	git clone https://github.com/maxvas/jinn
+	cd jinn/src
 	qmake
 	make install
 	jinnd -i && jinnd
@@ -21,7 +21,7 @@ Jinn
 **Установка на Windows из исходников:**
 
 	git clone https://github.com/maxvas/jinn
-	cd jinn
+	cd jinn/src
 	qmake
 	nmake install
 	
