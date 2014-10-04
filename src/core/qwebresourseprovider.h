@@ -9,6 +9,7 @@
 #include "requestprocessor.h"
 #include "jinnmodule.h"
 
+class QPluginLoader;
 class QHttpManipulator;
 
 class QWebResource
@@ -27,9 +28,11 @@ class QWebResourseProvider : public QObject
     Q_OBJECT
 public:
     explicit QWebResourseProvider(QObject *parent, QWebGlobalData* global);
+    ~QWebResourseProvider();
 
 private:
     QHash< QString, JinnModule* >  modules;
+    QHash< QString, QPluginLoader* >  loaders;
     QHttpManipulator* http;
     QWebGlobalData* global;
     qint16 port;
@@ -40,6 +43,9 @@ private:
     bool findProject(QString host, qint16 port);
     bool findContentProcessor(QString url);
     RequestProcessor *cp;
+    void loadModules();
+    bool loadModule(QString name);
+    bool unloadModule(QString name);
 
 signals:
 
@@ -49,6 +55,7 @@ public slots:
     void bodyRecieved();
     void beforeSendHeaders();
     void free();
+    void onModulesListChanged(QByteArray addressData, QString operation, QByteArray newDataData, QByteArray oldDataData);
 
 };
 

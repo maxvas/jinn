@@ -20,13 +20,13 @@ public:
     void addProject(QString prjFileName);
     void readProjectSettings(QString fileName);
     QDir dir();
+    int moduleIndex(QString moduleName);
     void removeModule(QString moduleName);
 
-private:
-
-signals:
-
 public slots:
+    void bla(QByteArray a, QString s, QByteArray d, QByteArray f);
+
+
 
 };
 
