@@ -1,0 +1,19 @@
+{
+    "name": "Manager",
+    "hosts": [
+        {
+            "host": "localhost:3444",
+            "port": 3444
+        },
+        {
+            "host": "manager:3444",
+            "port": 3444
+        }
+    ],
+    "modules":{
+        "manager": {
+            "a":4
+        }
+    }
+    
+}
