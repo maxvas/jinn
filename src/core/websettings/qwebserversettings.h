@@ -20,6 +20,7 @@ public:
     void addProject(QString prjFileName);
     void readProjectSettings(QString fileName);
     QDir dir();
+    void removeModule(QString moduleName);
 
 private:
 

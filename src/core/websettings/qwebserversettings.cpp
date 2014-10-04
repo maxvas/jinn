@@ -58,3 +58,7 @@ QDir QWebServerSettings::dir()
     QString dirName = ((QWebGlobalData*)(this->parent()))->dir();
     return QDir(dirName);
 }
+
+void QWebServerSettings::removeModule(QString moduleName)
+{
+}

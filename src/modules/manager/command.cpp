@@ -29,20 +29,16 @@ void Command::parse(QByteArray &data)
         if(tree[branch][oper]["exist"].toBool()){
             m_oper = oper;
 
-            if(tree[branch][oper]["opts"].toBool()){
-                params.removeFirst();
-                if(params.empty()){
-                    m_hasError = true;
-                    return;
+            params.removeFirst();
+            if(!params.empty()){
+                QString opt = params.at(0);
+                if(tree[branch][oper][opt].toBool()){
+                    m_opt = opt;
+                    params.removeFirst();
                 }
-                QString option = params.at(0);
-                if(tree[branch][oper][option].toBool()){
-
-                }
-                //TODO
             }
+
             if(tree[branch][oper]["args"].toBool()){
-                params.removeFirst();
                 if(params.empty()){
                     m_hasError = true;
                     return;
@@ -67,7 +63,7 @@ void Command::exec()
     }
     if(m_branch == "module"){
         if(m_oper=="list"){
-            m_hasError = !m_cmdExecutor->listModule();
+            m_hasError = !m_cmdExecutor->listModule(m_opt=="--all");
         }
         if(m_oper=="install"){
             QString libPath=m_arg;
@@ -76,6 +72,10 @@ void Command::exec()
         if(m_oper=="remove"){
             QString name=m_arg;
             m_hasError = !m_cmdExecutor->removeModule(name);
+        }
+        if(m_oper=="on"){
+            QString name=m_arg;
+            m_hasError = !m_cmdExecutor->turnModuleOn(name);
         }
     }
     if(m_branch == "config"){
@@ -110,15 +110,25 @@ QJS &Command::cmdTree()
     (*tree)["module"]["exist"]=true;
 
     (*tree)["module"]["list"]["exist"]=true;
+    (*tree)["module"]["list"]["--all"]=true;
     (*tree)["module"]["list"]["-h"]=QJS::Null;
 
     (*tree)["module"]["install"]["exist"]=true;
+    (*tree)["module"]["install"]["--off"]=true;
     (*tree)["module"]["install"]["args"]=true;
     (*tree)["module"]["install"]["-h"]=QJS::Null;
 
     (*tree)["module"]["remove"]["exist"]=true;
     (*tree)["module"]["remove"]["args"]=true;
     (*tree)["module"]["remove"]["-h"]=QJS::Null;
+
+    (*tree)["module"]["on"]["exist"]=true;
+    (*tree)["module"]["on"]["args"]=true;
+    (*tree)["module"]["on"]["-h"]=QJS::Null;
+
+    (*tree)["module"]["off"]["exist"]=true;
+    (*tree)["module"]["off"]["args"]=true;
+    (*tree)["module"]["off"]["-h"]=QJS::Null;
 
     //project branch
     (*tree)["project"]["exist"]=true;

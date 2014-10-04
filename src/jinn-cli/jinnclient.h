@@ -11,13 +11,14 @@ class JinnClient : public QObject
 {
     Q_OBJECT
 public:
-    explicit JinnClient(QCoreApplication* app,QObject *parent = 0);
-    void requestPOST(int port, QByteArray data);
-    void requestGET(int port, QString paramString);
+    explicit JinnClient(int port,QCoreApplication* app,QObject *parent = 0);
+    void requestPOST(QByteArray data);
 
 private slots:
     void response(QNetworkReply* reply);
 private:
+    int port;
+    QString url;
     QNetworkAccessManager*  mgr;
     QCoreApplication* app;
 

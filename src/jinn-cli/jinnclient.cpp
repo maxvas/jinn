@@ -1,32 +1,29 @@
 #include "jinnclient.h"
 #include <iostream>
 
-JinnClient::JinnClient(QCoreApplication *app, QObject *parent) :
-    QObject(parent), mgr(new QNetworkAccessManager(this)),app(app)
+JinnClient::JinnClient(int port,QCoreApplication *app, QObject *parent) :
+    QObject(parent), port(port),mgr(new QNetworkAccessManager(this)),app(app)
 {
+    url = "http://localhost:"+QString::number(port)+"/";
     connect(mgr,SIGNAL(finished(QNetworkReply*)),this,SLOT(response(QNetworkReply*)));
 }
 
-void JinnClient::requestPOST(int port, QByteArray data)
+void JinnClient::requestPOST(QByteArray data)
 {
-    QString url = "http://localhost:"+QString::number(port)+"/";
     QNetworkRequest request(url);
     request.setHeader(QNetworkRequest::ContentTypeHeader, "text/xml");
     mgr->post(request,data);
 }
 
-void JinnClient::requestGET(int port, QString paramString="")
-{
-    QString url = "http://localhost:"+QString::number(port)+"/?"+paramString;
-    QNetworkRequest request(url);
-    request.setHeader(QNetworkRequest::ContentTypeHeader, "text/xml");
-    mgr->get(request);
-}
-
 void JinnClient::response(QNetworkReply *reply)
 {
-    QByteArray data = reply->readAll();
     using namespace std;
+    QNetworkReply::NetworkError error = reply->error();
+    if(error!=QNetworkReply::NoError){
+        cout<<"can't connect to jinn on port "+ QString::number(port).toStdString() + ":\n";
+        cout<<reply->errorString().toStdString()<<endl;
+    }
+    QByteArray data = reply->readAll();
     cout<<QString(data).toStdString()<<endl;
     cout.flush();
     app->exit();

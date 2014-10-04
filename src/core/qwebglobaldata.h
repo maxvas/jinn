@@ -1,7 +1,7 @@
 #ifndef QWEBGLOBALDATA_H
 #define QWEBGLOBALDATA_H
 
-#include "QJSMapping"
+#include <QJSMapping>
 #include <QJSSharedNode>
 #include <QDir>
 #include "websettings/qwebserversettings.h"
@@ -24,7 +24,7 @@ private:
 signals:
 
 public slots:
-    void saveSettings();
+    void saveSettings(QByteArray, QString, QByteArray, QByteArray);
 
 };
 

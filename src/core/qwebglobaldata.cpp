@@ -1,6 +1,7 @@
 #include "qwebglobaldata.h"
 #include <QFile>
 #include <QFileInfo>
+#include <QDebug>
 
 QWebGlobalData::QWebGlobalData(QString settingsFileName) :
     QJSSharedNode()
@@ -9,6 +10,7 @@ QWebGlobalData::QWebGlobalData(QString settingsFileName) :
     setSettingsFileName(fileInfo.absoluteFilePath());
     setDir(fileInfo.absolutePath());
     readSettings();
+    doneConnects();
 }
 
 QWebGlobalData::QWebGlobalData(QByteArray initData):
@@ -35,12 +37,12 @@ void QWebGlobalData::readSettings()
     this->enableSignals();
 }
 
-void QWebGlobalData::saveSettings()
+void QWebGlobalData::saveSettings(QByteArray,QString,QByteArray,QByteArray)
 {
     QFile file(settingsFileName());
     if (!file.open(QFile::ReadWrite))
     {
-        //TODO: вывод ошибки
+        qDebug()<<"Error on write settings: Can't open file "<<settingsFileName();
         return;
     }
     file.write(this->get("settings").toJson().toUtf8());
@@ -49,5 +51,5 @@ void QWebGlobalData::saveSettings()
 
 void QWebGlobalData::doneConnects()
 {
-    connect(this, SIGNAL(dataChanged(QJS*,QString,QJS*,QJS*)), this, SLOT(saveSettings())); //Автосохранение будет происходить только при локальном изменении данных
+    connect(this, SIGNAL(dataChanged(QByteArray,QString,QByteArray,QByteArray)), this, SLOT(saveSettings(QByteArray,QString,QByteArray,QByteArray))); //Автосохранение будет происходить только при локальном изменении данных
 }

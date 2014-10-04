@@ -8,9 +8,11 @@ class CommandExecutor
 public:
     CommandExecutor(QWebServerSettings* serverSettings);
 
-    bool listModule();
-    bool installModule(QString libPath); //TODO: сделать zip
+    bool listModule(bool showAll = false);
+    bool installModule(QString libPath, bool moduleOff = false); //TODO: сделать zip(jml)
     bool removeModule(QString name);
+    bool turnModuleOn(QString name);
+    bool turnModuleOff(QString name);
 
     bool listProject();
     bool addProject(QString filePath);
@@ -23,6 +25,7 @@ private:
     QByteArray m_log;
 
     bool checkModule(QString libPath);
+    QStringList activeModules();
 
 };
 
