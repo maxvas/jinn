@@ -5,12 +5,14 @@ Jinn
 ---------
 
 Установка в Unix на исходников:
-	git clone https://github.com/maxvas/jinn
-	cd jinn
+
+    git clone https://github.com/maxvas/jinn
+    cd jinn
 	qmake
 	make install
   
 Установка в Windows на исходников:
+
 	git clone https://github.com/maxvas/jinn
 	cd jinn
 	qmake
