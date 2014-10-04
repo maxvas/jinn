@@ -1,9 +1,28 @@
 #include "qwebserver.h"
+#include <QCoreApplication>
 
-QWebServer::QWebServer(QString settingsFile) :
+QWebServer::QWebServer() :
     QObject(0)
 {
     qRegisterMetaType<qintptr>("qintptr");
+    //Определяем режим (developer или нет)
+    bool developer = false;
+    QString exePath = QCoreApplication::instance()->applicationDirPath();
+    developer = QFile::exists(exePath+"../config");
+    QString settingsFile = "/etc/jinn/jinn-global.jsn";//default value is path in develop
+    QDir dir(exePath);
+    if (developer)
+    {
+        qDebug()<<"Server started in 'developer' mode";
+        settingsFile = dir.filePath("../config/jinn-global.jsn");
+    }else
+    {
+        qDebug()<<"Server started in 'enterprise' mode";
+#ifndef __unix
+        settingsPath = dir.filePath("../config/jinn-global.jsn");
+#endif
+    }
+    qDebug()<<"Configs will be loaded from "<<settingsFile;
     this->settingsFileName = settingsFile;
 }
 
