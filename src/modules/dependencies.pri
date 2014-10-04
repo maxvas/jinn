@@ -11,10 +11,10 @@ CONFIG += qjs
 unix {
     target.path = /usr/share/jinn/modules
 } else {
-    target.path = $$PWD/../../package/modules
+    target.path = $$PATH_PACK/modules
 }
 INSTALLS += target
-QMAKE_CLEAN += -r $${DESTDIR}
+QMAKE_CLEAN += $${DESTDIR}/$${TARGET}
 unix {
     QMAKE_CLEAN += /usr/share/jinn/modules/*$${TARGET}*
 }

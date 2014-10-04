@@ -42,7 +42,8 @@ unix{
 }
 INSTALLS += target configs
 #make clean
-QMAKE_CLEAN += -r $${DESTDIR}
+QMAKE_CLEAN += $${DESTDIR}/*$${TARGET}*
 unix {
-    QMAKE_CLEAN += /usr/bin/*$${TARGET}*
+    QMAKE_CLEAN += /usr/bin/$${TARGET}
+    QMAKE_CLEAN += -r /etc/jinn
 }

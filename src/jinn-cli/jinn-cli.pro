@@ -16,4 +16,7 @@ HEADERS += \
 #Шаг install
 target.path = $$PATH_BIN
 INSTALLS += target
-QMAKE_CLEAN += $${DESTDIR}/*$${TARGET}*
+QMAKE_CLEAN += $${DESTDIR}/$${TARGET}
+unix {
+    QMAKE_CLEAN += /usr/bin/$${TARGET}
+}

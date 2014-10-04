@@ -1,7 +1,5 @@
 #include "qhttpresponse.h"
 #include <QStringList>
-#include <QColor>
-#include <QBrush>
 
 QHttpResponse::QHttpResponse(QObject *parent) :
     QObject(parent), m_headersSent(false)
@@ -9,7 +7,7 @@ QHttpResponse::QHttpResponse(QObject *parent) :
     m_headers = new QHttpHeadersList();
     #define STATUS_CODE(code, message, naame) m_statusCodes.insert(code, message);
     #include "statuses.h"
-#undef STATUS_CODE
+    #undef STATUS_CODE
 }
 
 QHttpResponse::~QHttpResponse()
