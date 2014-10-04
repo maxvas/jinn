@@ -1,20 +1,19 @@
-#-------------------------------------------------
-#
-# Project created by QtCreator 2014-10-01T16:23:11
-#
-#-------------------------------------------------
+include($$top_srcdir/jinnconfig.pri)
 
 QT       += core network
-
 QT       -= gui
-DESTDIR = ../../bin
+
 TARGET = jinn
 
 TEMPLATE = app
-
 
 SOURCES += main.cpp \
     jinnclient.cpp
 
 HEADERS += \
     jinnclient.h
+
+#Шаг install
+target.path = $$PATH_BIN
+INSTALLS += target
+QMAKE_CLEAN += $${DESTDIR}/*$${TARGET}*

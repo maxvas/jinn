@@ -7,4 +7,5 @@ SUBDIRS += \
     qhttpparser/qhttpparser.pro \
     core \
     jinnd \
-    modules
+    modules \
+    jinn-cli

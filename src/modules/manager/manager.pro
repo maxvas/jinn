@@ -1,8 +1,4 @@
-#-------------------------------------------------
-#
-# Project created by QtCreator 2014-08-11T00:03:41
-#
-#-------------------------------------------------
+include(../dependencies.pri)
 
 QT       -= gui
 
@@ -10,8 +6,6 @@ TARGET = manager
 TEMPLATE = lib
 
 DEFINES += LIBRARY
-
-include(../dependencies.pri)
 
 SOURCES += \
     managermodule.cpp \

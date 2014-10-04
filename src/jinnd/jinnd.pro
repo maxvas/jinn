@@ -1,19 +1,19 @@
-QT       += network
+include($$top_srcdir/jinnconfig.pri)
+include(../qtservice/src/qtservice.pri)
+
+QT       += core network
 QT       -= gui
 
 TEMPLATE = app
-DESTDIR = ../../bin
 TARGET = jinnd
 
 CONFIG += qjs
 
 INCLUDEPATH += "../qhttpparser"
-LIBS += -L"../../bin" -lqhttpparser
+LIBS += -L$$DESTDIR -lqhttpparser
 
 INCLUDEPATH += "../core"
-LIBS += -L"../../bin" -ljinn
-
-include(../qtservice/src/qtservice.pri)
+LIBS += -L$$DESTDIR -ljinn
 
 SOURCES += \
     main.cpp \
@@ -30,14 +30,18 @@ HEADERS += \
     qwebserver.h \
     jinnservice.h
 
-unix {
-    target.path = /usr/bin
+#Шаг install
+target.path = $$PATH_BIN
+QMAKE_CLEAN += $${DESTDIR}/*$${TARGET}*
+#Конфиги на линуксе должны копироваться всегда в /etc/jinn
+#На Windows конфиги по умолчанию лежат в C:/Programm Files/Jinn, но это не всегда так.
+#Поэтому конфиг на Windows будет генерироваться установщиком
+unix{
     configs.path =  /etc/jinn
-    configs.files = $${PWD}/../../distr/linux/config/*
-} else {
-    target.path = $$PWD/../install/lib
+    configs.files = $$top_srcdir/../package/unix/config/*
 }
 INSTALLS += target configs
+#make clean
 QMAKE_CLEAN += -r $${DESTDIR}
 unix {
     QMAKE_CLEAN += /usr/bin/*$${TARGET}*
