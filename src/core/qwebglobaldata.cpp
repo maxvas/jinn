@@ -29,11 +29,12 @@ void QWebGlobalData::readSettings()
     }
     QString text = file.readAll();
     (*this)["settings"] = QJS::fromJson(text);
-    foreach(QJS prjFileItem, this->settings().prjFiles())
-    {
-        QString fileName = prjFileItem.toString();
-        settings().readProjectSettings(fileName);
-    }
+    this->settings().loadProjects();
+//    foreach(QJS prjFileItem, this->settings().prjFiles())
+//    {
+//        QString fileName = prjFileItem.toString();
+//        settings().readProjectSettings(fileName);
+//    }
     this->enableSignals();
 }
 

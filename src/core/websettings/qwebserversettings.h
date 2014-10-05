@@ -13,7 +13,7 @@ class JINN_CORESHARED_EXPORT QWebServerSettings : public QJS
 public:
     QJS_MAPPING_ARRAY("modules", modules, addModule, QString)
     QJS_MAPPING_QSTRING("modulesDir", modulesDir, setModulesDir)
-    QJS_MAPPING_ARRAY("prjFiles", prjFiles, addProjectFile, QString)
+    QJS_MAPPING_QSTRING("projectsDir", projectsDir, setProjectsDir)
     QJS_MAPPING_STRINGHASH("projects", projects, getProject, setProject, QWebProject)
     QJS_MAPPING_INT("connectionsPerWorker", connectionsPerWorker, setConnectionsPerWorker)
     QJS_MAPPING_INT("workersCount", workersCount, setWorkersCount)
@@ -22,9 +22,8 @@ public:
     QDir dir();
     int moduleIndex(QString moduleName);
     void removeModule(QString moduleName);
-//    void loadProjects();
-//    void unloadProjects();
-
+    void loadProjects();
+    void unloadProjects();
 
 };
 

@@ -7,15 +7,15 @@
 
 void QWebServerSettings::addProject(QString prjFileName)
 {
-
-    QString fileName = dir().absoluteFilePath(prjFileName);
-    foreach(QJS file, prjFiles())
-    {
-        if (file.toString()==fileName)
-            return;
-    }
-    readProjectSettings(fileName);
-    this->prjFiles().append(fileName);
+    //TODO сделать)
+//    QString fileName = dir().absoluteFilePath(prjFileName);
+//    foreach(QJS file, prjFiles())
+//    {
+//        if (file.toString()==fileName)
+//            return;
+//    }
+//    readProjectSettings(fileName);
+//    this->prjFiles().append(fileName);
 }
 
 void QWebServerSettings::readProjectSettings(QString fileName)
@@ -78,4 +78,27 @@ void QWebServerSettings::removeModule(QString moduleName)
     }
     for_test = modules();
     qDebug()<<for_test.toString();
+}
+
+void QWebServerSettings::loadProjects()
+{
+    QDir dir(projectsDir());
+    QStringList list = dir.entryList(QDir::Dirs);
+    foreach (QString subdir, list) {
+        QDir prjDir(dir);
+        if(prjDir.cd(subdir)){
+            QStringList filters;filters << "*.prj";
+            QStringList fileList = prjDir.entryList(filters,QDir::Files);
+            if(!fileList.empty()){
+                QString fileName = fileList.at(0);
+                QString path = prjDir.absoluteFilePath(fileName);
+                readProjectSettings(path);
+            }
+        }
+    }
+}
+
+void QWebServerSettings::unloadProjects()
+{
+    projects()=QJS::Null;
 }

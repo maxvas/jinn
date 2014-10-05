@@ -1,7 +1,7 @@
 #include "jinnclient.h"
 #include <iostream>
 
-JinnClient::JinnClient(int port,QCoreApplication *app, QObject *parent) :
+JinnClient::JinnClient(int port,QObject *parent) :
     QObject(parent), port(port),mgr(new QNetworkAccessManager(this)),app(app)
 {
     url = "http://localhost:"+QString::number(port)+"/";
@@ -26,5 +26,5 @@ void JinnClient::response(QNetworkReply *reply)
     QByteArray data = reply->readAll();
     cout<<QString(data).toStdString()<<endl;
     cout.flush();
-    app->exit();
+    QCoreApplication::exit();
 }

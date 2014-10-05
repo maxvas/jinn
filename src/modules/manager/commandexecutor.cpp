@@ -165,7 +165,9 @@ bool CommandExecutor::turnModuleOff(QString name)
 
 bool CommandExecutor::reloadProject()
 {
-//    m_serverSettings.
+    m_serverSettings->unloadProjects();
+    m_serverSettings->loadProjects();
+    return true;
 }
 
 

@@ -15,17 +15,17 @@ int main(int argc, char *argv[])
     int port =3444; //default port
     QStringList argList=a.arguments();
     argList.removeFirst();
-    if(argList.size()>0){
-        if(argList[0]=="-p"){
-            argList.removeFirst();
-            if(argList.size()>0){
-                port=argList[0].toInt();
-            }
-            argList.removeFirst();
+    if(argList.empty())
+        return 0;
+    if(argList[0]=="-p"){
+        argList.removeFirst();
+        if(argList.size()>0){
+            port=argList[0].toInt();
         }
+        argList.removeFirst();
     }
     if(argList.size()>0){
-        JinnClient *client = new JinnClient(port,&a);
+        JinnClient *client = new JinnClient(port);
         QByteArray data;
         foreach (QString arg, argList) {
             data.append(arg);

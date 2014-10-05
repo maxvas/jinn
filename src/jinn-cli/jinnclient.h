@@ -11,7 +11,7 @@ class JinnClient : public QObject
 {
     Q_OBJECT
 public:
-    explicit JinnClient(int port,QCoreApplication* app,QObject *parent = 0);
+    explicit JinnClient(int port, QObject *parent = 0);
     void requestPOST(QByteArray data);
 
 private slots:
