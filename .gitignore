@@ -7,3 +7,6 @@ bin
 *.exe
 *.o
 install
+*.Debug
+*.Release
+Makefile
