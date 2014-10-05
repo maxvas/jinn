@@ -9,7 +9,7 @@ class QWebServer : public QObject
 {
     Q_OBJECT
 public:
-    QWebServer(QString settingsFile);
+    QWebServer();
     void start();
     void stop();
 

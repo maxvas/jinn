@@ -7,10 +7,7 @@ int main(int argc, char *argv[])
 {
 #ifdef QT_DEBUG
     QCoreApplication a(argc, argv);
-    QString exePath = a.applicationDirPath();
-    QDir dir(exePath);
-    QString settingsPath = dir.filePath("../config/jinn-global.jsn");
-    QWebServer server(settingsPath);
+    QWebServer server;
     server.start();
     a.exec();
 #endif

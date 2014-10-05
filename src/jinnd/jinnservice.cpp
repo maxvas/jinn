@@ -15,24 +15,7 @@ JinnService::JinnService(int argc, char **argv) :
 
 void JinnService::start()
 {
-    QString exePath = application()->applicationDirPath();
-    QDir dir(exePath);
-    QString settingsPath = dir.absoluteFilePath("../config/jinn-global.jsn");
-    bool developerBuild = isDeveloperBuild();
-    if (developerBuild)
-        qDebug()<<"DEVELOPER BUILD";
-#ifdef __unix
-    if (!developerBuild)
-    {
-            settingsPath = "/etc/jinn/jinn-global.jsn";
-    }
-#endif
-//    if (!QFile::exists(settingsPath))
-//    {
-//        qDebug()<<"Global config not found";
-//    }
-//    QFileInfo settingsFileInfo()
-    server = new QWebServer(settingsPath);
+    server = new QWebServer();
     server->start();
 }
 
