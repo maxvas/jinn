@@ -1,2 +1,3 @@
-CONFIG += qjs qhttpparser  echo target.path =  echo INCLUDEPATH += C:/git/left/jinn/package/win32/build/include/qhttpparser  echo LIBS += -LC:/git/left/jinn/package/win32/build -ljinn 
-CONFIG += qjs qhttpparser  echo INCLUDEPATH += C:/git/left/jinn/package/win32/build/include/jinn  echo LIBS += -LC:/git/left/jinn/package/win32/build -ljinn 
+CONFIG += qjs qhttpparser
+INCLUDEPATH += /usr/include/jinn echo LIBS += -L/usr/lib -ljinn
+target.path = /usr/share/jinn/modules echo INSTALLS += target
