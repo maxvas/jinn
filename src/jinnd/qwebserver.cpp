@@ -19,7 +19,7 @@ QWebServer::QWebServer() :
     {
         qDebug()<<"Server started in 'enterprise' mode";
 #ifndef __unix
-        settingsPath = dir.filePath("../config/jinn-global.jsn");
+        settingsFile = dir.filePath("../config/jinn-global.jsn");
 #endif
     }
     qDebug()<<"Configs will be loaded from "<<settingsFile;

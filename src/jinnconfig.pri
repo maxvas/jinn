@@ -13,6 +13,12 @@ unix{
     PATH_INCLUDE = /usr/include
     PATH_BIN = /usr/bin
 }
+win32{
+    PATH_PACK = $$top_srcdir/../package/win32/build
+    PATH_LIB = $$PATH_PACK
+    PATH_INCLUDE = $$PATH_PACK/include
+    PATH_BIN = $$PATH_PACK
+}
 #3. Устанавливаем переменную QTDIR
 defineReplace(findQtDir){
     QTDIR=$$(QTDIR)

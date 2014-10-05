@@ -2,6 +2,7 @@
 #include "QCoreApplication"
 #include <iostream>
 #include <QDebug>
+#include <QStringList>
 
 void help(){
     using namespace std;

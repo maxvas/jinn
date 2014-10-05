@@ -175,7 +175,7 @@ QByteArray CommandExecutor::log()
 bool CommandExecutor::checkModule(QString libPath)
 {
     bool check = false;
-    if(!QFileInfo::exists(libPath))
+    if(!QFile::exists(libPath))
         return false;
 
     QPluginLoader loader(libPath);
