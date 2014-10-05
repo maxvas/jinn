@@ -1,6 +1,7 @@
 {
     "connectionsPerWorker": 1,
     "modules": [
+        "manager",
         "proxy",
         "static",
         "test"
@@ -11,6 +12,4 @@
         "../projects/manager/manager.prj"
     ],
     "workersCount": 1
-}"workersCount": 1
-}workersCount": 1
 }

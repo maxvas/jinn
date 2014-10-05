@@ -8,7 +8,7 @@ QWebServer::QWebServer() :
     //Определяем режим (developer или нет)
     bool developer = false;
     QString exePath = QCoreApplication::instance()->applicationDirPath();
-    developer = QFile::exists(exePath+"../config");
+    developer = QFile::exists(exePath+"/../config");
     QString settingsFile = "/etc/jinn/jinn-global.jsn";//default value is path in develop
     QDir dir(exePath);
     if (developer)

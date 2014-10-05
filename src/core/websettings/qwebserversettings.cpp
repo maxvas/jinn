@@ -79,13 +79,3 @@ void QWebServerSettings::removeModule(QString moduleName)
     for_test = modules();
     qDebug()<<for_test.toString();
 }
-
-void QWebServerSettings::loadProjects()
-{
-
-}
-
-void QWebServerSettings::bla(QByteArray a, QString s, QByteArray d, QByteArray f)
-{
-    qDebug()<<"bla"<<s;
-}

@@ -22,12 +22,8 @@ public:
     QDir dir();
     int moduleIndex(QString moduleName);
     void removeModule(QString moduleName);
-    void loadProjects();
-    void unloadProjects();
-
-public slots:
-    void bla(QByteArray a, QString s, QByteArray d, QByteArray f);
-
+//    void loadProjects();
+//    void unloadProjects();
 
 
 };
