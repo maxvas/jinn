@@ -59,7 +59,9 @@ void Command::exec()
     if(m_hasError)
         return;
     if(m_branch == "project"){
-
+        if(m_oper=="reload"){
+            m_hasError = !m_cmdExecutor->reloadProject();
+        }
     }
     if(m_branch == "module"){
         if(m_oper=="list"){
@@ -67,7 +69,7 @@ void Command::exec()
         }
         if(m_oper=="install"){
             QString libPath=m_arg;
-            m_hasError = !m_cmdExecutor->installModule(libPath);
+            m_hasError = !m_cmdExecutor->installModule(libPath,m_opt == "--off");
         }
         if(m_oper=="remove"){
             QString name=m_arg;
@@ -136,6 +138,9 @@ QJS &Command::cmdTree()
 
     //project branch
     (*tree)["project"]["exist"]=true;
+
+    (*tree)["project"]["reload"]["exist"]=true;
+    (*tree)["project"]["reload"]["-h"]=QJS::Null;
 
     (*tree)["project"]["list"]["exist"]=true;
     (*tree)["project"]["list"]["-h"]=QJS::Null;

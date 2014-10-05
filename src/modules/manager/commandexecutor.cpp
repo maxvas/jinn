@@ -98,10 +98,7 @@ bool CommandExecutor::removeModule(QString name)
     #endif
     QStringList moduleList=dir.entryList(filters,QDir::Files);
     foreach (QString fileName, moduleList){
-//        QPluginLoader loader(fileName);
-//        bool bla=loader.isLoaded();
-        //(TODO)
-
+        turnModuleOff(name);
         if(!dir.remove(fileName)){
             m_log.append("\ncant't delete file "+fileName);
             return false;
@@ -164,6 +161,11 @@ bool CommandExecutor::turnModuleOff(QString name)
     }
     m_serverSettings->removeModule(name);
     return true;
+}
+
+bool CommandExecutor::reloadProject()
+{
+//    m_serverSettings.
 }
 
 

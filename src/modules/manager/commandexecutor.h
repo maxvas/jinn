@@ -7,13 +7,15 @@ class CommandExecutor
 {
 public:
     CommandExecutor(QWebServerSettings* serverSettings);
-
+    //module
     bool listModule(bool showAll = false);
     bool installModule(QString libPath, bool moduleOff = false); //TODO: сделать zip(jml)
     bool removeModule(QString name);
     bool turnModuleOn(QString name);
     bool turnModuleOff(QString name);
 
+    //project
+    bool reloadProject();
     bool listProject();
     bool addProject(QString filePath);
     bool removeProject();

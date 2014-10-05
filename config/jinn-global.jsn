@@ -3,7 +3,7 @@
     "modules": [
         "proxy",
         "static",
-        "manager"
+        "test"
     ],
     "modulesDir": "../bin/modules/",
     "prjFiles": [
@@ -11,6 +11,6 @@
         "../projects/manager/manager.prj"
     ],
     "workersCount": 1
-}rkersCount": 1
+}"workersCount": 1
 }workersCount": 1
 }
