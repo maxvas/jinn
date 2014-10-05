@@ -38,7 +38,7 @@ QMAKE_CLEAN += $${DESTDIR}/*$${TARGET}*
 #Поэтому конфиг на Windows будет генерироваться установщиком
 unix{
     configs.path =  /etc/jinn
-    configs.files = $$top_srcdir/../package/unix/config*
+    configs.files = $$top_srcdir/../package/unix/config/*
 }
 unix{
     projects.path = /srv/jinn
