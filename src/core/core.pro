@@ -63,9 +63,7 @@ unix{
 win32{
     feature.path = $${OUT_PWD}
     feature.files = $$prffile
-    feature.extra += echo "CONFIG += qjs qhttpparser" > $$prffile\
-        echo "INCLUDEPATH += $$PATH_INCLUDE/jinn" >> $$prffile\
-        echo "LIBS += -L$$PATH_LIB -ljinn" >> $$prffile
+    feature.extra += echo "CONFIG += qjs qhttpparser" > $$prffile echo "INCLUDEPATH += $$PATH_INCLUDE/jinn" >> $$prffile echo "LIBS += -L$$PATH_LIB -ljinn" >> $$prffile
 }
 
 INSTALLS += target includes feature

@@ -5,14 +5,15 @@ Jinn
 ---------
 
 Системные требования:
+
 1. Компилятор GCC 4.7 и выше или MSVC 2010 и выше
 2. Qt 5.0 или выше
 3. [QJS](https://github.com/maxvas/qjs)
 
 **Установка на Unix из исходников:**
 
-    git clone https://github.com/maxvas/jinn
-    cd jinn
+	git clone https://github.com/maxvas/jinn
+	cd jinn/src
 	qmake
 	make install
 	jinnd -i && jinnd
@@ -20,7 +21,7 @@ Jinn
 **Установка на Windows из исходников:**
 
 	git clone https://github.com/maxvas/jinn
-	cd jinn
+	cd jinn/src
 	qmake
 	nmake install
 	
