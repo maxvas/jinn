@@ -40,7 +40,11 @@ unix{
     configs.path =  /etc/jinn
     configs.files = $$top_srcdir/../package/unix/config/*
 }
-INSTALLS += target configs
+unix{
+    projects.path = /srv/jinn
+    projects.files = $$top_srcdir/../projects/*
+}
+INSTALLS += target configs projects
 #make clean
 QMAKE_CLEAN += $${DESTDIR}/*$${TARGET}*
 unix {
