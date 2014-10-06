@@ -6,6 +6,7 @@
         "static",
         "test"
     ],
+    
     "modulesDir": "../bin/modules/",
     "projectsDir": "../projects/",
     "workersCount": 1
