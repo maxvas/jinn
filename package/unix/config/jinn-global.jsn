@@ -1,15 +1,12 @@
 {
-	"prjFiles": [
-        "/root/jinn/projects/project1/project1.prj",
-        "/root/jinn/projects/manager/manager.prj"
-	],
-	"connectionsPerWorker": 1,
-	"workersCount": 1,
-        "modulesDir":"/usr/share/jinn/modules/",
-	"modules": [
-		"test",
-		"proxy",
-		"static",
-		"manager"
-	]
+    "connectionsPerWorker": 1,
+    "modules": [
+        "manager",
+        "proxy",
+        "static",
+        "test"
+    ],
+    "modulesDir": "/usr/share/jinn/modules",
+    "projectsDir": "/srv/jinn",
+    "workersCount": 1
 }
