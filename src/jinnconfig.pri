@@ -25,7 +25,7 @@ defineReplace(findQtDir){
     !isEmpty(QTDIR){
         #message("Enviroment variable QTDIR has been setted. So, we simple use it")
         #message(QTDIR=$${QTDIR})
-        return($${QTDIR});
+        return($${QTDIR}/bin);
     }
     message(Enviroment variable QTDIR is empty. We will try to get it by parsing PATH variable)
     PATH = $$(PATH)
